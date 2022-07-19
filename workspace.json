@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "rum-records-react": "apps/rum-records-react",
+    "rum-records-react-e2e": "apps/rum-records-react-e2e"
+  }
+}

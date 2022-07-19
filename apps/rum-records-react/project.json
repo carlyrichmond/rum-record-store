@@ -1,0 +1,83 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/rum-records-react/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/rum-records-react",
+        "index": "apps/rum-records-react/src/index.html",
+        "baseHref": "/",
+        "main": "apps/rum-records-react/src/main.js",
+        "polyfills": "apps/rum-records-react/src/polyfills.js",
+        "tsConfig": "apps/rum-records-react/tsconfig.app.json",
+        "assets": [
+          "apps/rum-records-react/src/favicon.ico",
+          "apps/rum-records-react/src/assets"
+        ],
+        "styles": ["apps/rum-records-react/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/rum-records-react/src/environments/environment.js",
+              "with": "apps/rum-records-react/src/environments/environment.prod.js"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "rum-records-react:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "rum-records-react:build:development"
+        },
+        "production": {
+          "buildTarget": "rum-records-react:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/rum-records-react/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/rum-records-react"],
+      "options": {
+        "jestConfig": "apps/rum-records-react/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

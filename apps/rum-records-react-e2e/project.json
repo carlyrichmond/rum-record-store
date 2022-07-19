@@ -1,0 +1,28 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/rum-records-react-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/rum-records-react-e2e/cypress.json",
+        "devServerTarget": "rum-records-react:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "rum-records-react:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/rum-records-react-e2e/**/*.js"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["rum-records-react"]
+}
