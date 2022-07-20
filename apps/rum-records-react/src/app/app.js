@@ -4,7 +4,6 @@ import { faMugSaucer, faRecordVinyl } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { init as initApm } from '@elastic/apm-rum';
-import { ApmRoute } from '@elastic/apm-rum-react';
 
 import './app.module.scss';
 
@@ -49,7 +48,7 @@ export function App() {
               </div>
             }
           />
-          <ApmRoute
+          <Route
             path="/records"
             element={
               <div>
@@ -57,7 +56,7 @@ export function App() {
               </div>
             }
           />
-          <ApmRoute
+          <Route
             path="/events"
             element={
               <div>
