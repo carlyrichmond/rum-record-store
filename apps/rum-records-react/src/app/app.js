@@ -4,6 +4,7 @@ import { faMugSaucer, faRecordVinyl } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { init as initApm } from '@elastic/apm-rum';
+import { ApmRoute } from '@elastic/apm-rum-react';
 
 import './app.module.scss';
 
@@ -38,33 +39,34 @@ export function App() {
       <hr />
       <br />
       <section>
-        <Routes>
-          <Route
+          <ApmRoute
             path="/"
-            element={
+            component={ () => {
               <div className="main-splash">
                 This is the main generated root route.{' '}
                 <Link to="/records">Click here for page 2.</Link>
               </div>
+              }
             }
           />
-          <Route
+          <ApmRoute
             path="/records"
-            element={
+            component={ () => {
               <div>
                 <Link to="/">Click here to go back to root page.</Link>
               </div>
+              }
             }
           />
-          <Route
+          <ApmRoute
             path="/events"
-            element={
+            component={ () => {
               <div>
                 <Link to="/">Click here to go back to root page.</Link>
               </div>
+              }
             }
           />
-        </Routes>
       </section>
       <footer>
         Made by Carly Richmond with love and excessive amounts of tea
