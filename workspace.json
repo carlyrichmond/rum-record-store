@@ -2,7 +2,11 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "rum-records-angular": "apps/rum-records-angular",
+    "rum-records-angular-e2e": "apps/rum-records-angular-e2e",
     "rum-records-react": "apps/rum-records-react",
-    "rum-records-react-e2e": "apps/rum-records-react-e2e"
+    "rum-records-react-e2e": "apps/rum-records-react-e2e",
+    "rum-records-vanilla-js": "apps/rum-records-vanilla-js",
+    "rum-records-vanilla-js-e2e": "apps/rum-records-vanilla-js-e2e"
   }
 }
