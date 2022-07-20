@@ -1,10 +1,10 @@
 import { Route, Routes, Link } from 'react-router-dom';
 
-//import { ApmRoutes, ApmRoute } from '@elastic/apm-rum-react'
-
 import { faMugSaucer, faRecordVinyl } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { init as initApm } from '@elastic/apm-rum';
+import { ApmRoute } from '@elastic/apm-rum-react';
 
 import './app.module.scss';
 
@@ -20,14 +20,14 @@ export function App() {
   return (
     <>
       <header>
-        <h1>RUM Records <FontAwesomeIcon icon={faRecordVinyl} /></h1>
+        <h1>
+          <Link className="company-header" to="/">RUM Records</Link>
+          <FontAwesomeIcon icon={faRecordVinyl} />
+        </h1>
       </header>
       <br />
       <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
+        <ul className="nav-bar">
           <li>
             <Link to="/records">Records</Link>
           </li>
@@ -49,7 +49,7 @@ export function App() {
               </div>
             }
           />
-          <Route
+          <ApmRoute
             path="/records"
             element={
               <div>
@@ -57,7 +57,7 @@ export function App() {
               </div>
             }
           />
-          <Route
+          <ApmRoute
             path="/events"
             element={
               <div>

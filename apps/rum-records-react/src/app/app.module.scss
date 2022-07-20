@@ -1,10 +1,10 @@
 $highlight-icon-color : #F68FBE;
 $header-and-footer-background-color: #000;
 $main-text-color: #ffff;
+$nav-text-color: #551a8b;
 
-.main-splash {
-    background-image: "../assets/images/home-splash-image.jpg";
-}
+$header-font: 'Righteous';
+$secondary-font: 'Baloo 2';
 
 body {
     margin: 0;
@@ -12,26 +12,52 @@ body {
 
 header {
     background-color: $header-and-footer-background-color;
-    opacity: 0.9;
-    color: $main-text-color;
-    font-family: "Righteous";
+    font-family: $header-font;
     font-size: 2em;
 
     /* Positioning */
     display: flex;
     flex-direction: row; 
-    justify-content: center;   
+    justify-content: center;
+    
+    a {
+        color: $main-text-color;
+        text-decoration: none;
+    }
 }
 
-[data-prefix=fas] {
-    color: $highlight-icon-color;
+nav {
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+    
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    
+        li {
+            margin: 0 0.5rem 0 0.5rem;
+
+            a {
+                font-family: $secondary-font;
+                text-decoration: none;
+                font-size: 1.1rem;
+                color: $nav-text-color;
+            }
+        }
+    }
+}
+
+.main-splash {
+    background-image: '../assets/images/home-splash-image.jpg';
 }
 
 footer {
     background-color: $header-and-footer-background-color;
     color: $main-text-color;
     padding: 1rem;
-    font-family: "Baloo 2";
+    font-family: $secondary-font;
     
     /* Positioning */
     width: 100%;
@@ -40,6 +66,11 @@ footer {
     text-align: center;
 }
 
-[data-icon="mug-saucer"] {
+[data-prefix=fas] {
+    color: $highlight-icon-color;
+    margin-left: 1rem;
+}
+
+[data-icon='mug-saucer'] {
     margin-left: 0.5rem;
 }
