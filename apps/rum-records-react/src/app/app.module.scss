@@ -1,1 +1,45 @@
-/* Your styles goes here. */
+$highlight-icon-color : #F68FBE;
+$header-and-footer-background-color: #000;
+$main-text-color: #ffff;
+
+.main-splash {
+    background-image: "../assets/images/home-splash-image.jpg";
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    background-color: $header-and-footer-background-color;
+    opacity: 0.9;
+    color: $main-text-color;
+    font-family: "Righteous";
+    font-size: 2em;
+
+    /* Positioning */
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;   
+}
+
+[data-prefix=fas] {
+    color: $highlight-icon-color;
+}
+
+footer {
+    background-color: $header-and-footer-background-color;
+    color: $main-text-color;
+    padding: 1rem;
+    font-family: "Baloo 2";
+    
+    /* Positioning */
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+}
+
+[data-icon="mug-saucer"] {
+    margin-left: 0.5rem;
+}
