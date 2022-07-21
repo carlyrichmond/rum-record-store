@@ -1,4 +1,4 @@
-import { Route, Routes, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { faMugSaucer, faRecordVinyl } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,7 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { init as initApm } from '@elastic/apm-rum';
 import { ApmRoute } from '@elastic/apm-rum-react';
 
-import './app.module.scss';
+import styles from './app.module.scss';
+import MainSplashComponent from './main-splash-component/main-splash-component';
 
 export function App() {
 
@@ -21,7 +22,7 @@ export function App() {
     <>
       <header>
         <h1>
-          <Link className="company-header" to="/">RUM Records</Link>
+          <Link className="styles.company-header" to="/">RUM Records</Link>
           <FontAwesomeIcon icon={faRecordVinyl} />
         </h1>
       </header>
@@ -34,20 +35,16 @@ export function App() {
           <li>
             <Link to="/events">Events</Link>
           </li>
+          <li>
+            <Link to="/news">News</Link>
+          </li>
         </ul>
       </nav>
       <hr />
-      <br />
       <section>
           <ApmRoute
             path="/"
-            component={ () => {
-              <div className="main-splash">
-                This is the main generated root route.{' '}
-                <Link to="/records">Click here for page 2.</Link>
-              </div>
-              }
-            }
+            component={MainSplashComponent}
           />
           <ApmRoute
             path="/records"
@@ -63,6 +60,15 @@ export function App() {
             component={ () => {
               <div>
                 <Link to="/">Click here to go back to root page.</Link>
+              </div>
+              }
+            }
+          />
+          <ApmRoute
+            path="/news"
+            component={ () => {
+              <div>
+                <Link to="/">Nothing excited at the moment!</Link>
               </div>
               }
             }
