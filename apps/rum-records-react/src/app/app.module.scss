@@ -1,10 +1,9 @@
+@use '../styles';
+
 $highlight-icon-color : #F68FBE;
 $header-and-footer-background-color: #000;
 $main-text-color: #ffff;
 $nav-text-color: #551a8b;
-
-$header-font: 'Righteous';
-$secondary-font: 'Baloo 2';
 
 
 .company-header {
@@ -17,7 +16,7 @@ body {
 
 header {
     background-color: $header-and-footer-background-color;
-    font-family: $header-font;
+    font-family: styles.$header-font;
     font-size: 2em;
 
     /* Positioning */
@@ -49,7 +48,7 @@ nav {
             margin: 0 0.5rem 0 0.5rem;
 
             a {
-                font-family: $secondary-font;
+                font-family: styles.$secondary-font;
                 text-decoration: none;
                 font-size: 1.1rem;
                 color: $nav-text-color;
@@ -62,7 +61,7 @@ footer {
     background-color: $header-and-footer-background-color;
     color: $main-text-color;
     padding: 1rem;
-    font-family: $secondary-font;
+    font-family: styles.$secondary-font;
     
     /* Positioning */
     width: 100%;
@@ -71,11 +70,12 @@ footer {
     text-align: center;
 }
 
-[data-prefix=fas] {
+[data-icon='record-vinyl'] {
     color: $highlight-icon-color;
     margin-left: 1rem;
 }
 
 [data-icon='mug-saucer'] {
+    color: $highlight-icon-color;
     margin-left: 0.5rem;
 }

@@ -1,3 +1,34 @@
+@use '../../styles';
+
 .splash {
-    height: "100vh";
+    display: flex;
+    justify-content: center;
+}
+
+.searchContainer {
+    margin-top: 10rem;
+    width: 75%;
+    height: 6%;
+}
+
+input {
+    width: 100%;
+    height: 100%;
+    padding-left: 2rem;
+    border-radius: 1rem;
+    line-height: normal;
+}
+
+input::placeholder {
+    font-family: styles.$secondary-font;
+    font-size: 1.10rem;
+    text-align: center;
+}
+
+[data-icon='magnifying-glass'] {
+    position: relative;
+    margin-bottom: 2rem;
+    margin-left: 1rem;
+    color: #7B7B7B;
+    cursor: pointer;
 }

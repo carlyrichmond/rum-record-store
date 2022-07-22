@@ -1,10 +1,10 @@
-import { getGreeting } from '../support/app.po';
+import { getCompanyHeader, getFooterGreeting, getSearchBar } from '../support/app.po';
 describe('rum-records-react', () => {
   beforeEach(() => cy.visit('/'));
-  it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome rum-records-react');
+  it('should display home page with search', () => {
+    getCompanyHeader().should('include.text', 'RUM Records');
+    getFooterGreeting().contains('with love and excessive amounts of tea');
+
+    getSearchBar().type('Hozier').should('have.value', 'Hozier');
   });
 });

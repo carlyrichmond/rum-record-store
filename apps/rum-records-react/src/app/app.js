@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { init as initApm } from '@elastic/apm-rum';
 import { ApmRoute } from '@elastic/apm-rum-react';
 
-import styles from './app.module.scss';
+import './app.module.scss';
 import MainSplashComponent from './main-splash-component/main-splash-component';
 
 export function App() {
@@ -22,7 +22,7 @@ export function App() {
     <>
       <header>
         <h1>
-          <Link className="styles.company-header" to="/">RUM Records</Link>
+          <Link className="company-header" to="/">RUM Records</Link>
           <FontAwesomeIcon icon={faRecordVinyl} />
         </h1>
       </header>
