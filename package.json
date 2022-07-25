@@ -6,6 +6,7 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
+    "e2e-rum": "npx nx e2e rum-records-react-e2e --browser chrome && npx nx e2e rum-records-react-e2e --browser firefox && npx nx e2e rum-records-react-e2e --browser edge && npx nx e2e rum-records-react-e2e --browser electron",
     "postinstall": "ngcc --properties es2020 browser module main"
   },
   "private": true,
