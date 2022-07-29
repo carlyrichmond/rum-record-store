@@ -6,8 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { init as initApm } from '@elastic/apm-rum';
 import { ApmRoute } from '@elastic/apm-rum-react';
 
-import './app.module.scss';
+import styles from './app.module.scss';
 import MainSplashComponent from './main-splash-component/main-splash-component';
+import RecordListComponent from './record-list-component/record-list-component';
 
 export function App() {
 
@@ -21,8 +22,8 @@ export function App() {
   return (
     <>
       <header>
-        <h1>
-          <Link className="company-header" to="/">RUM Records</Link>
+        <h1 className={styles['app-header']}>
+          <Link className={styles['company-header']} to="/">RUM Records</Link>
           <FontAwesomeIcon icon={faRecordVinyl} />
         </h1>
       </header>
@@ -44,16 +45,12 @@ export function App() {
       <section>
           <ApmRoute
             path="/"
+            exact
             component={MainSplashComponent}
           />
           <ApmRoute
             path="/records"
-            component={ () => {
-              <div>
-                <Link to="/">Click here to go back to root page.</Link>
-              </div>
-              }
-            }
+            component={RecordListComponent}            
           />
           <ApmRoute
             path="/events"

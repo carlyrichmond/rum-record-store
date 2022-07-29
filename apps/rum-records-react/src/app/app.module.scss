@@ -1,21 +1,13 @@
 @use '../styles';
 
-$highlight-icon-color : #F68FBE;
-$header-and-footer-background-color: #000;
-$main-text-color: #ffff;
 $nav-text-color: #551a8b;
-
-
-.company-header {
-    color: pink !important;
-}
 
 body {
     margin: 0;
 }
 
 header {
-    background-color: $header-and-footer-background-color;
+    background-color: styles.$main-background-color;
     font-family: styles.$header-font;
     font-size: 2em;
 
@@ -25,7 +17,7 @@ header {
     justify-content: center;
     
     a {
-        color: $main-text-color;
+        color: styles.$main-text-color;
         text-decoration: none;
     }
 }
@@ -58,8 +50,8 @@ nav {
 }
 
 footer {
-    background-color: $header-and-footer-background-color;
-    color: $main-text-color;
+    background-color: styles.$main-background-color;
+    color: styles.$main-text-color;
     padding: 1rem;
     font-family: styles.$secondary-font;
     
@@ -70,12 +62,12 @@ footer {
     text-align: center;
 }
 
-[data-icon='record-vinyl'] {
-    color: $highlight-icon-color;
+.app-header > [data-icon='record-vinyl'] {
+    color: styles.$highlight-icon-color;
     margin-left: 1rem;
 }
 
 [data-icon='mug-saucer'] {
-    color: $highlight-icon-color;
+    color: styles.$highlight-icon-color;
     margin-left: 0.5rem;
 }

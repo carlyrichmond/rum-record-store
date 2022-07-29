@@ -1,0 +1,21 @@
+@use '../../styles';
+
+.container {
+    background-color: styles.$main-background-color;
+    height: "100vh" !important;
+
+    padding: 1rem 2rem;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    align-items: center;
+}
+
+.no-records-label {
+    text-align: center;
+    margin: 6rem auto 0 auto;
+
+    font-size: 1.2rem;
+}

@@ -1,0 +1,70 @@
+@use '../../styles';
+
+.record-card {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    max-width: 10rem;
+    height: fit-content;
+
+    box-shadow: 1px 4px 8px 0 styles.$highlight-icon-color;
+    transition: 0.3s;
+
+    margin: 0.5rem 1rem;
+    padding: 1rem 2rem;
+}
+
+.record-card:hover {
+    box-shadow: 1px 8px 16px 0 styles.$highlight-icon-color;
+}
+
+.format-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+
+    margin: auto;
+}
+
+h2 {
+    font-family: styles.$header-font;
+    margin-bottom: 0rem;
+    color: styles.$main-text-color;
+    font-size: large;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    width: clamp(160px, 1vw, 180px);
+}
+
+h3 {
+    font-family: styles.$secondary-font;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    color: styles.$main-text-color;
+    font-size: medium;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    width: clamp(180px, 1vw, 200px);
+}
+
+.available-formats-label {
+    font-style: italic;
+}
+
+[data-prefix='fas'] {
+    color: styles.$highlight-icon-color;
+}
