@@ -24,10 +24,11 @@ export function App() {
   return (
     <>
       <header>
-        <h1 className={styles['app-header']}>
-          <Link className={styles['company-header']} to="/">RUM Records</Link>
-          <FontAwesomeIcon icon={faRecordVinyl} />
-        </h1>
+          <Link className={styles['company-header']} to="/">
+            <h1 className={styles['app-header']} data-testid="company-header">
+              RUM Records <FontAwesomeIcon icon={faRecordVinyl} />
+            </h1>
+          </Link>
       </header>
       <br />
       <nav>

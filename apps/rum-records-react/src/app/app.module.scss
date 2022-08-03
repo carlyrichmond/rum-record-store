@@ -49,6 +49,11 @@ nav {
     }
 }
 
+section {
+    height: "100vh";
+    overflow-y: scroll;
+}
+
 footer {
     background-color: styles.$main-background-color;
     color: styles.$main-text-color;
@@ -62,7 +67,7 @@ footer {
     text-align: center;
 }
 
-.app-header > [data-icon='record-vinyl'] {
+[data-icon='record-vinyl'] {
     color: styles.$highlight-icon-color;
     margin-left: 1rem;
 }

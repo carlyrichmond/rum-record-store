@@ -6,9 +6,4 @@ describe('MainSplashComponent', () => {
     expect(baseElement).toBeTruthy();
   });
 
-  it('should contain search input', () => {
-    const { getByPlaceholderText } = render(<MainSplashComponent />);
-    expect(getByPlaceholderText(/Browse our record selection today!/gi)).toBeTruthy();
-  });
-
 });

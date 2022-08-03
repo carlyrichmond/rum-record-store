@@ -12,7 +12,7 @@ export function RecordCardComponent(props) {
   };
 
   return (
-    <div className={styles['record-card']}>
+    <div className={styles['record-card']} data-testid='record-card'>
       <img src={props.record.imagePath} alt='Record'/>
     <div className={styles['record-details']}>
       <h2>{props.record.title}</h2>

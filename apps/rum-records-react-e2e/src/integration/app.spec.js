@@ -1,10 +1,22 @@
-import { getCompanyHeader, getFooterGreeting, getSearchBar } from '../support/app.po';
+import { getCompanyHeader, getFooterGreeting, getRecordCards, getSearchBar } from '../support/app.po';
 describe('rum-records-react', () => {
   beforeEach(() => cy.visit('/'));
-  it('should display home page with search', () => {
+  it('should display home page with search bar', () => {
     getCompanyHeader().should('include.text', 'RUM Records');
     getFooterGreeting().contains('with love and excessive amounts of tea');
 
     getSearchBar().type('Hozier').should('have.value', 'Hozier');
   });
+
+  it('should search for records', () => {
+    getSearchBar().type('Beetle{enter}');
+
+    cy.location().should((location) => {
+      expect(location.pathname).to.eq('/records');
+      expect(location.search).to.eq('?terms=beetle');
+    });
+
+    getRecordCards().should('have.length', 2);
+  });
+
 });

@@ -121,6 +121,6 @@ const records = [
 }
 ];
 
-export function getRecords() {
+export function getAllRecords() {
     return records;
 }
