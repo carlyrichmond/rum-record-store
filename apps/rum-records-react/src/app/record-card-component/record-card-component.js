@@ -6,9 +6,9 @@ import styles from './record-card-component.module.scss';
 export function RecordCardComponent(props) {
 
   const formatIconMap = {
-    'Vinyl': faRecordVinyl,
+    'LP': faRecordVinyl,
     'CD': faCompactDisc,
-    'Digital Download': faFileAudio
+    'DD': faFileAudio
   };
 
   return (
@@ -20,7 +20,8 @@ export function RecordCardComponent(props) {
       <div className={styles['available-formats']}>
         <label className={styles['available-formats-label']}>Available formats</label>
         <div data-testid='format-icon-collection' className={styles['format-icons']}>
-        { props.record.formats.map((format, index) => 
+        { 
+        props.record.formats.map((format, index) => 
         (<FontAwesomeIcon key={index} icon={formatIconMap[format]}/>)
         )}
         </div>

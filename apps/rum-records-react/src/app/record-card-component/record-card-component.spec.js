@@ -6,7 +6,7 @@ describe('RecordCardComponent', () => {
 
     const record = {
       title: 'Sgt Pepper\'s Lonely Hearts Club Band',
-      artist: 'The Beetles',
+      artist: 'The Beatles',
       formats: ['CD', 'LP'],
       imagePath: '../img.avif'
     };

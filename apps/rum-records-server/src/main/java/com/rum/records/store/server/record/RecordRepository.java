@@ -11,28 +11,35 @@ import reactor.core.publisher.Flux;
 public class RecordRepository {
     
     private static final List<MusicRecord> RECORD_DATA;
+    private static final List<MusicRecordFormat> FORMATS;
 
     static {
+        FORMATS = new ArrayList<MusicRecordFormat>();
+        FORMATS.add(MusicRecordFormat.CD);
+        FORMATS.add(MusicRecordFormat.LP);
+        FORMATS.add(MusicRecordFormat.DD);
+
         RECORD_DATA = new ArrayList<MusicRecord>();
-        RECORD_DATA.add(new MusicRecord("Abbey Road", "The Beetles"));
-        RECORD_DATA.add(new MusicRecord("Sgt Pepper\'s Lonely Hearts Club Band", "The Beetles"));
-        RECORD_DATA.add(new MusicRecord("True Blue", "Madonna"));
-        RECORD_DATA.add(new MusicRecord("Born in the USA", "Bruce Springsteen"));
-        RECORD_DATA.add(new MusicRecord("Grace Jones", "Island Life"));
-        RECORD_DATA.add(new MusicRecord("The Dark Side of the Moon", "Pink Floyd"));
-        RECORD_DATA.add(new MusicRecord("Unknown Pleasures", "Joy Division"));
-        RECORD_DATA.add(new MusicRecord("Rumours", "Fleetwood Mac"));
-        RECORD_DATA.add(new MusicRecord("Nevermind", "The Notorious BIG"));
-        RECORD_DATA.add(new MusicRecord("Aladdin Sane", "David Bowie"));
-        RECORD_DATA.add(new MusicRecord("The Dreaming", "Kate Bush"));
-        RECORD_DATA.add(new MusicRecord("Definitely Maybe", "Oasis"));
-        RECORD_DATA.add(new MusicRecord("Sticky Fingers", "The Rolling Stones"));
-        RECORD_DATA.add(new MusicRecord("Parallel Lines", "Blondie"));
-        RECORD_DATA.add(new MusicRecord("The Freewheelin\' Bob Dylan", "Bob Dylan"));
-        RECORD_DATA.add(new MusicRecord("Led Zeppelin", "Led Zeppelin"));
-        RECORD_DATA.add(new MusicRecord("London Calling", "The Clash"));
-        RECORD_DATA.add(new MusicRecord("Straight Outta Compton", "NWA"));
-        RECORD_DATA.add(new MusicRecord("The Ramones", "The Ramones"));
+        RECORD_DATA.add(new MusicRecord(1, "Abbey Road", "The Beatles", FORMATS));
+        RECORD_DATA.add(new MusicRecord(2, "Sgt Pepper\'s Lonely Hearts Club Band", "The Beatles", FORMATS));
+        RECORD_DATA.add(new MusicRecord(3, "True Blue", "Madonna", FORMATS.subList(0, 1)));
+        RECORD_DATA.add(new MusicRecord(4, "Born in the USA", "Bruce Springsteen", FORMATS));
+        RECORD_DATA.add(new MusicRecord(5, "Grace Jones", "Island Life", FORMATS.subList(0, 0)));
+        RECORD_DATA.add(new MusicRecord(6, "The Dark Side of the Moon", "Pink Floyd", FORMATS));
+        RECORD_DATA.add(new MusicRecord(7, "Unknown Pleasures", "Joy Division", FORMATS));
+        RECORD_DATA.add(new MusicRecord(8, "Rumours", "Fleetwood Mac", FORMATS));
+        RECORD_DATA.add(new MusicRecord(9, "Nevermind", "Nirvana", FORMATS.subList(1, 2)));
+        RECORD_DATA.add(new MusicRecord(10, "Aladdin Sane", "David Bowie", FORMATS));
+        RECORD_DATA.add(new MusicRecord(11, "The Dreaming", "Kate Bush", FORMATS));
+        RECORD_DATA.add(new MusicRecord(12, "Definitely Maybe", "Oasis", FORMATS));
+        RECORD_DATA.add(new MusicRecord(13, "Sticky Fingers", "The Rolling Stones", FORMATS));
+        RECORD_DATA.add(new MusicRecord(14, "Parallel Lines", "Blondie", FORMATS.subList(0, 1)));
+        RECORD_DATA.add(new MusicRecord(15, "The Freewheelin\' Bob Dylan", "Bob Dylan", FORMATS.subList(1, 2)));
+        RECORD_DATA.add(new MusicRecord(16, "Led Zeppelin", "Led Zeppelin", FORMATS));
+        RECORD_DATA.add(new MusicRecord(17, "London Calling", "The Clash", FORMATS));
+        RECORD_DATA.add(new MusicRecord(18, "Straight Outta Compton", "NWA", FORMATS.subList(1, 2)));
+        RECORD_DATA.add(new MusicRecord(19, "The Ramones", "The Ramones", FORMATS));
+        RECORD_DATA.add(new MusicRecord(20, "Ready to Die", "The Notorious BIG", FORMATS));
     }
 
     public Flux<MusicRecord> findRecordsByQuery(String query) {

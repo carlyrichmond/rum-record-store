@@ -9,11 +9,11 @@ describe('rum-records-react', () => {
   });
 
   it('should search for records on enter', () => {
-    getSearchBar().type('Beetle{enter}');
+    getSearchBar().type('Beatle{enter}');
 
     cy.location().should((location) => {
       expect(location.pathname).to.eq('/records');
-      expect(location.search).to.eq('?terms=beetle');
+      expect(location.search).to.eq('?terms=beatle');
     });
 
     getRecordCards().should('have.length', 2);

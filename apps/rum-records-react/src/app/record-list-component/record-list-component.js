@@ -1,27 +1,44 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
+
+import { baseURL } from '../config';
 import RecordCardComponent from '../record-card-component/record-card-component';
+
 import styles from './record-list-component.module.scss';
-import { getAllRecords } from './records';
 
 export function RecordListComponent({ query }) {
 
   const [ records, setRecords ] = useState();
 
-  const getRecords = () => {
-    const allRecords = getAllRecords();
-    let filteredRecords = allRecords;
-    
-    if (query){
-      filteredRecords = allRecords.filter((record) => {
-        return record.title.toLowerCase().search(query) > -1 || record.artist.toLowerCase().search(query) > -1;
-      });
-    }
+  function enrichRecordsWithImages(records) {
+    const baseImageURL = '../../assets/images/records';
 
-    setRecords(filteredRecords);
-  }
+    return records.map((record) => {
+      const filename = `${baseImageURL}/${record.albumId}.avif`;
+      return {...record, imagePath: filename}
+    });
+}
 
   useEffect(() => {
-    setRecords(getRecords);
+    async function getRecords() {
+      try {
+        let url = `${baseURL}/records/`;
+
+        if (query) {
+          url += `${query}`;
+        }
+
+        axios.get(url).then(res => {
+          const enrichedRecords = enrichRecordsWithImages(res.data)
+          setRecords(enrichedRecords);
+      })
+      }
+      catch(err) {
+        console.log(err)
+        setRecords([]);
+      }
+    }
+    getRecords();
   }, []);
 
   return (

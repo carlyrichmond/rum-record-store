@@ -26,10 +26,15 @@ public class RecordControllerIntegrationTest {
 
     @Test
     void givenQuery_whenGetRecordsByQuery_thenCorrectRecords() {
+      
+        ArrayList<MusicRecordFormat> formats = new ArrayList<MusicRecordFormat>();
+        formats.add(MusicRecordFormat.CD);
+        formats.add(MusicRecordFormat.LP);
+        formats.add(MusicRecordFormat.DD);
 
         ArrayList<MusicRecord> records = new ArrayList<MusicRecord>();
-        records.add(new MusicRecord("Hozier", "Hozier"));
-        records.add(new MusicRecord("Wasteland, Baby!", "Hozier"));;
+        records.add(new MusicRecord(1, "Hozier", "Hozier", formats));
+        records.add(new MusicRecord(2, "Wasteland, Baby!", "Hozier", formats));
 
         given(recordRepository.findRecordsByQuery("hozier")).willReturn(Flux.fromIterable(records));
 
@@ -42,11 +47,15 @@ public class RecordControllerIntegrationTest {
 
     @Test
     void whenGetAllRecords_thenCorrectRecords() {
+
+      ArrayList<MusicRecordFormat> formats = new ArrayList<MusicRecordFormat>();
+        formats.add(MusicRecordFormat.CD);
+        formats.add(MusicRecordFormat.LP);
         
         ArrayList<MusicRecord> records = new ArrayList<MusicRecord>();
-        records.add(new MusicRecord("Hozier", "Hozier"));
-        records.add(new MusicRecord("Wasteland, Baby!", "Hozier"));
-        records.add(new MusicRecord("Dream your Life Away", "Vance Job"));
+        records.add(new MusicRecord(1, "Hozier", "Hozier", formats));
+        records.add(new MusicRecord(2, "Wasteland, Baby!", "Hozier", formats));
+        records.add(new MusicRecord(3, "Dream your Life Away", "Vance Job"));
 
         given(recordRepository.findAllRecords()).willReturn(Flux.fromIterable(records));
 
