@@ -8,9 +8,9 @@ import { ApmRoute } from '@elastic/apm-rum-react';
 
 import styles from './app.module.scss';
 import MainSplashComponent from './main-splash-component/main-splash-component';
-import RecordListComponent from './record-list-component/record-list-component';
 import EventListComponent from './event-list-component/event-list-component';
 import NewsListComponent from './news-list-component/news-list-component';
+import SearchRecordsComponent from './search-records-component/search-records-component';
 
 export function App() {
 
@@ -53,7 +53,7 @@ export function App() {
           />
           <ApmRoute
             path="/records"
-            component={RecordListComponent}            
+            component={SearchRecordsComponent}            
           />
           <ApmRoute
             path="/events"

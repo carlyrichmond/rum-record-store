@@ -1,29 +1,19 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import RecordCardComponent from '../record-card-component/record-card-component';
 import styles from './record-list-component.module.scss';
 import { getAllRecords } from './records';
 
-  // Custom hook to get query params
-  function useQueryParams() {
-    const { search } = useLocation();
-    const params = new URLSearchParams(search);
-    
-    return params.get('terms');
-  }
+export function RecordListComponent({ query }) {
 
-export function RecordListComponent(props) {
-
-  const [ queryTerms ] = useState(useQueryParams());
   const [ records, setRecords ] = useState();
 
   const getRecords = () => {
     const allRecords = getAllRecords();
     let filteredRecords = allRecords;
     
-    if (queryTerms){
+    if (query){
       filteredRecords = allRecords.filter((record) => {
-        return record.title.toLowerCase().search(queryTerms) > -1 || record.artist.toLowerCase().search(queryTerms) > -1;
+        return record.title.toLowerCase().search(query) > -1 || record.artist.toLowerCase().search(query) > -1;
       });
     }
 

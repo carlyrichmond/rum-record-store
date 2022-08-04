@@ -12,13 +12,14 @@ export function SearchBarComponent(props) {
     if (event?.key === 'Enter') {
       const queryTerms = event.currentTarget.value.toLowerCase();
       history.push(`/records?terms=${queryTerms}`);
+      window.location.reload();
     }
   }
 
   return (
     <div className={styles.searchContainer}>
         <FontAwesomeIcon icon={faSearch} />
-        <input type="search" placeholder="Browse our record selection today!" 
+        <input defaultValue={props.query} type="search" placeholder="Browse our record selection today!" 
         aria-label="Search record selection" onKeyUp={searchRecords}></input>
       </div>
   );

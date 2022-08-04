@@ -50,6 +50,8 @@ nav {
 }
 
 section {
+    background-color: styles.$main-background-color;
+    
     height: "100vh";
     overflow-y: scroll;
 }
