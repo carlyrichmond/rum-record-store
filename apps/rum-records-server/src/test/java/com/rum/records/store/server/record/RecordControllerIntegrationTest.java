@@ -25,7 +25,7 @@ public class RecordControllerIntegrationTest {
     private RecordRepository recordRepository;
 
     @Test
-    void givenQuery_whenGetRecordsByQuery_thenCorrectRecord() {
+    void givenQuery_whenGetRecordsByQuery_thenCorrectRecords() {
 
         ArrayList<MusicRecord> records = new ArrayList<MusicRecord>();
         records.add(new MusicRecord("Hozier", "Hozier"));
@@ -41,7 +41,7 @@ public class RecordControllerIntegrationTest {
     }
 
     @Test
-    void whenGetAllRecords_thenCorrecRecords() {
+    void whenGetAllRecords_thenCorrectRecords() {
         
         ArrayList<MusicRecord> records = new ArrayList<MusicRecord>();
         records.add(new MusicRecord("Hozier", "Hozier"));
