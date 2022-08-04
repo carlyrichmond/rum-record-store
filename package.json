@@ -28,6 +28,7 @@
     "@nrwl/react": "^14.4.3",
     "@nrwl/web": "14.4.3",
     "@nrwl/workspace": "14.4.3",
+    "@nxrocks/nx-spring-boot": "^4.1.0",
     "@testing-library/react": "13.3.0",
     "@types/jest": "27.4.1",
     "@types/node": "16.11.7",

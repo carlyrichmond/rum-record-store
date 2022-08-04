@@ -15,14 +15,21 @@
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ],
         "accessToken": "NjY4ZWRlMzktOTVhMi00ZTBmLWIxZjctYmEzZDk3ZDQzOWUyfHJlYWQtd3JpdGU="
       }
     }
   },
   "targetDefaults": {
     "build": {
-      "dependsOn": ["^build"]
+      "dependsOn": [
+        "^build"
+      ]
     }
   },
   "generators": {
@@ -65,5 +72,8 @@
       "unitTestRunner": "jest"
     }
   },
-  "defaultProject": "rum-records-react"
+  "defaultProject": "rum-records-react",
+  "plugins": [
+    "@nxrocks/nx-spring-boot"
+  ]
 }

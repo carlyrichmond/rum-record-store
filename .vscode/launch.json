@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch RumRecordsServerApplication",
+            "request": "launch",
+            "mainClass": "com.rum.records.store.server.RumRecordsServerApplication",
+            "projectName": "rum-records-store"
+        },
+        {
             "name": "Debug Jest Tests",
             "type": "node",
             "request": "launch",

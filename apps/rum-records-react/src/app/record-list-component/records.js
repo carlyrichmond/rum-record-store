@@ -37,7 +37,7 @@ const records = [
 },
 {
     title: 'Unknown Pleasures',
-    artist: 'Jo Division',
+    artist: 'Joy Division',
     formats: ['CD', 'LP', 'Digital Download'],
     imagePath: '../../assets/images/records/joy-division-unknown-pleasures.avif'
 },
