@@ -8,7 +8,7 @@ describe('rum-records-react', () => {
     getSearchBar().type('Hozier').should('have.value', 'Hozier');
   });
 
-  it('should search for records', () => {
+  it('should search for records on enter', () => {
     getSearchBar().type('Beetle{enter}');
 
     cy.location().should((location) => {
