@@ -86,6 +86,17 @@
 					</java>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+    			<artifactId>spring-boot-maven-plugin</artifactId>
+    			<executions>
+        			<execution>
+            			<configuration>
+                			<mainClass>com.rum.records.store.server.RumRecordsServerApplication</mainClass>
+            			</configuration>
+        			</execution>
+    			</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>
