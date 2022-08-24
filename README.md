@@ -1,63 +1,35 @@
 
 
-# RumRecordStore
+# Rum Record Store: Are They Really Using It?
 
-This project was generated using [Nx](https://nx.dev).
+A monorepo containing several UI and server components showcasing Elastic User Experience Monitoring via JavaScript RUM and Java APM agents. Used to input sample user interaction data into an Elastic Observability dashboard. This project was generated using [Nx](https://nx.dev).
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+<p style="text-align: center;"><img src="./screenshots/rum-records-react.png" width="450"></p>
 
-🔎 **Smart, Fast and Extensible Build System**
+This project comprises several applications, visible within the *apps* folder:
 
-## Adding capabilities to your workspace
+1. *rum-records-server*: Java Spring Boot Webflux Application with Elastic Java APM.
+2. *rum-records-react*: JavaScript React UI, connected to *rum-records-server*.
+3. *rum-records-angular*: Angular TypeScript UI, currently under development.
+4. *rum-records-vanilla*: JavaScript UI application, currently under development.
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+Each UI component also has a corresponding e2e, or end-to-end, testing suite, implemented using [Cypress](https://www.cypress.io/) and postfixed with e2e. For example, the e2e suite for *rum-records-react* is *rum-records-react-e2e*.
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+## Running Locally
 
-Below are our core plugins:
+Running the UI and server together requires starting both components via the below commands from folder *rum-records-store*. Note that the `npm install` command only needs to be run on the first run to download local dependencies from npm.
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+```
+npm install
+mvn spring-boot:start
+nx serve rum-records-react
+```
 
-There are also many [community plugins](https://nx.dev/community) you could add.
-
-## Generate an application
-
-Run `nx g @nrwl/react:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@rum-record-store/mylib`.
-
-## Development server
-
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
+The application will be available at http://localhost:4200/, connecting to the Java application running at http://localhost:8080/. The app will automatically reload if you change any of the source files.
 
 ## Build
 
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+To build any apps within the repo, run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 ## Running unit tests
 
@@ -67,9 +39,11 @@ Run `nx affected:test` to execute the unit tests affected by a change.
 
 ## Running end-to-end tests
 
-Run `nx e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
+Run `npx nx e2e my-app-e2e-suite` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
 
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
+For example, the e2e suite for rum-records-react, the main UI project, can be run via `npx nx e2e rum-records-react-e2e`. The `--watch` action opens the Cypress suite allowing for tests to be executed and debugged.
+
+[As per this guide](https://docs.cypress.io/guides/guides/cross-browser-testing), Cypress supports test execution across multiple browsers using the `--browser` option. For example, executing tests using chrome is possible via `npx nx e2e rum-records-react-e2e --browser `. To run the test suite across Edge, Chrome and Electron browsers, use the helper command `npm run e2e-rum-react`. Note that each browser must be installed on your local machine for the task to succeed.
 
 ## Understand your workspace
 
@@ -77,21 +51,10 @@ Run `nx graph` to see a diagram of the dependencies of your projects.
 
 ## Further help
 
-Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-
-
-## ☁ Nx Cloud
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+1. [Nx Documentation](https://nx.dev)
+2. [Elastic User Experience Overview](https://www.elastic.co/guide/en/observability/current/user-experience.html)
+3. [Elastic RUM Agent](https://www.elastic.co/guide/en/apm/agent/rum-js/current/index.html)
+4. [Elastic Observability Guide](https://www.elastic.co/guide/en/observability/current/index.html) 
 
 ## Credits
 
@@ -99,4 +62,5 @@ Thanks to the individuals whose content has been used in the making of this app.
 
 ## Image Credits
 
-Record Hero on Home Page: [Erik Mclean via Unsplash](https://unsplash.com/photos/9y1cTVKe1IY)
+- Record Hero on Home Page: [Erik Mclean via Unsplash](https://unsplash.com/photos/9y1cTVKe1IY)
+- Record Images Source: [Independent: The 30 greatest album covers of all time, from Oasis, 'Definitely Maybe' to Patti Smith, 'Horses'](https://www.independent.co.uk/arts-entertainment/music/features/best-album-covers-ever-b2144450.html)
