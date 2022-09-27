@@ -4,7 +4,24 @@
 
 A monorepo containing several UI and server components showcasing Elastic User Experience Monitoring via JavaScript RUM and Java APM agents. Used to input sample user interaction data into an Elastic Observability dashboard. This project was generated using [Nx](https://nx.dev).
 
-<p style="text-align: center;"><img src="./screenshots/rum-records-react.png" width="450"></p>
+<p style="text-align: center;"><img src="./docs/screenshots/rum-records-react.png" width="450"></p>
+
+This application provides the code examples for the talk *Are They Really Using It?*, to be given at several forums including:
+
+1. Lean Agile Scotland
+2. London Java Community
+3. TechMids
+4. Modern Frontends Live!
+
+## Overview
+
+### Architecture
+
+The server and React frontend components make use of Elastic APM and RUM agents respectively. These agents establish the communication with the APM server which in turn pushes the events to Elasticsearch for visualisation in Kibana. The architecture is presented below:
+
+<p style="text-align: center;"><img src="./docs/rum-architecture-images/rum-architecture.png" width="450"></p>
+
+### Code Structure
 
 This project comprises several applications, visible within the *apps* folder:
 
@@ -19,10 +36,16 @@ Each UI component also has a corresponding e2e, or end-to-end, testing suite, im
 
 Running the UI and server together requires starting both components via the below commands from folder *rum-records-store*. Note that the `npm install` command only needs to be run on the first run to download local dependencies from npm.
 
+UI
 ```
 npm install
-mvn spring-boot:start
 nx serve rum-records-react
+```
+
+SERVER
+```
+cd apps/rum-records-server
+mvn spring-boot:start
 ```
 
 The application will be available at http://localhost:4200/, connecting to the Java application running at http://localhost:8080/. The app will automatically reload if you change any of the source files.
