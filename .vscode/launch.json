@@ -9,7 +9,8 @@
             "name": "Launch RumRecordsServerApplication",
             "request": "launch",
             "mainClass": "com.rum.records.store.server.RumRecordsServerApplication",
-            "projectName": "rum-records-store"
+            "projectName": "rum-records-store",
+            "vmArgs": "-javaagent:apps/rum-records-server/src/main/resources/otel/opentelemetry-javaagent.jar -Dotel.javaagent.configuration-file=apps/rum-records-server/src/main/resources/otel/elasticotel.properties",
         },
         {
             "name": "Debug Jest Tests",
