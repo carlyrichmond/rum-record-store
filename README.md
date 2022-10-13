@@ -18,7 +18,7 @@ This application provides the code examples for the talk *Are They Really Using 
 
 The server and React frontend components make use of Elastic APM and RUM agents respectively. These agents establish the communication with the APM server which in turn pushes the events to Elasticsearch for visualisation in Kibana. The architecture is presented below:
 
-<p style="text-align: center;"><img src="./docs/rum-architecture-images/rum-architecture.png" width="450"></p>
+<p style="text-align: center;"><img src="./docs/rum-architecture-images/rum-architecture-apm-and-otel.png" width="450"></p>
 
 ### Code Structure
 
