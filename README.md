@@ -10,8 +10,7 @@ This application provides the code examples for the talk *Are They Really Using 
 
 1. Lean Agile Scotland
 2. London Java Community
-3. TechMids
-4. Modern Frontends Live!
+3. Modern Frontends Live!
 
 ## Overview
 
@@ -25,7 +24,7 @@ The server and React frontend components make use of Elastic APM and RUM agents 
 
 This project comprises several applications, visible within the *apps* folder:
 
-1. *rum-records-server*: Java Spring Boot Webflux Application with Elastic Java APM.
+1. *rum-records-server*: Java Spring Boot Webflux Application with Elastic Java APM on the [main branch](https://github.com/carlyrichmond/rum-record-store/tree/main) and Open Telemetry on the [otel branch](https://github.com/carlyrichmond/rum-record-store/tree/otel).
 2. *rum-records-react*: JavaScript React UI, connected to *rum-records-server*.
 3. *rum-records-angular*: Angular TypeScript UI, currently under development.
 4. *rum-records-vanilla*: JavaScript UI application, currently under development.
