@@ -16,7 +16,7 @@ describe('MainSplashComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should render successfully', () => {
     expect(component).toBeTruthy();
   });
 });
