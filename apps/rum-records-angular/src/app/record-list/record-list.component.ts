@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { MusicRecord } from './music-record';
 import { RecordService } from './record.service';
@@ -10,9 +11,16 @@ import { RecordService } from './record.service';
 })
 export class RecordListComponent {
 
-  public records$: Observable<MusicRecord[]> | null;
+  public records$: Observable<MusicRecord[]>;
 
-  constructor(private recordService: RecordService) {
+  constructor(private recordService: RecordService, private route: ActivatedRoute) {
     this.records$ = this.recordService.getRecords();
+  }
+
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      const terms = params['terms'];
+      this.records$ = this.recordService.getRecords(terms);
+    })
   }
 }

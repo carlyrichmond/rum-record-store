@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { RecordListComponent } from './record-list.component';
 import { RecordService } from './record.service';
@@ -14,6 +15,7 @@ describe('RecordListComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ RecordListComponent ],
+      imports: [ RouterTestingModule ],
       providers: [ { provide: RecordService, useValue: mockRecordService } ]
     }).compileComponents();
 

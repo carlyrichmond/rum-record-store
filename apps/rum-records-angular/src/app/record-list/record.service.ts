@@ -11,8 +11,13 @@ export class RecordService {
 
   constructor(private http: HttpClient) { }
 
-  public getRecords(): Observable<MusicRecord[]> {
-    const url = `${environment.baseUrl}/records/`;
+  public getRecords(query?: string): Observable<MusicRecord[]> {
+    let url = `${environment.baseUrl}/records/`;
+
+    if (query) {
+      url += `${query}`;
+    }
+
     return this.http.get<MusicRecord[]>(url).pipe(map(
       records => {
         return this.enrichRecordsWithImages(records);

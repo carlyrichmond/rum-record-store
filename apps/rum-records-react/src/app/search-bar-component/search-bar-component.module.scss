@@ -17,9 +17,8 @@ input::placeholder {
 
 [data-icon='magnifying-glass'] {
     position: relative;
-    margin-bottom: -2.1rem;
-    margin-left: 1rem;
-    color: #7B7B7B;
+    left: 1rem;
+    top: 1.9rem;
+    color: #7B7B7B !important;
     cursor: pointer;
-    z-index: 3;
 }

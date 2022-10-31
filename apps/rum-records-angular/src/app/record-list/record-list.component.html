@@ -1,4 +1,9 @@
 <div class='container' *ngIf='(records$ | async) as records'>
-    <rum-record-store-record-card *ngFor='let record of records' [record]='record'></rum-record-store-record-card>
-    <label *ngIf='records.length === 0' class='no-records-label'>No records found</label> 
+    <div class='search-bar-container'>
+        <rum-record-store-search-bar></rum-record-store-search-bar>
+    </div>
+    <div class='cards-container' *ngIf='(records$ | async) as records'>
+        <rum-record-store-record-card *ngFor='let record of records' [record]='record'></rum-record-store-record-card>
+        <label *ngIf='records.length === 0' class='no-records-label'>No records found</label> 
+    </div>
 </div>
