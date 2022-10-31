@@ -1,17 +1,9 @@
+@use '../styles'
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2&family=Righteous&display=swap')
 
-$header-font: 'Righteous'
-$secondary-font: 'Baloo 2'
-$main-background-color: #000
-$main-text-color: #ffff
-$secondary-text-color: #c5c5c5
-$highlight-icon-color : #F68FBE
-    
-$nav-text-color: #551a8b
-
 header
-    background-color: $main-background-color
-    font-family: $header-font
+    background-color: styles.$main-background-color
+    font-family: styles.$header-font
     font-size: 2em
 
     /* Positioning */
@@ -20,11 +12,11 @@ header
     justify-content: center
     
     a
-        color: $main-text-color
+        color: styles.$main-text-color
         text-decoration: none
 label
-    font-family: $secondary-font
-    color: $secondary-text-color
+    font-family: styles.$secondary-font
+    color: styles.$secondary-text-color
 
 hr
     margin: 0
@@ -44,27 +36,20 @@ nav
             margin: 0 0.5rem 0 0.5rem
 
             a
-                font-family: $secondary-font
+                font-family: styles.$secondary-font
                 text-decoration: none
                 font-size: 1.1rem
-                color: $nav-text-color
-            
-        
-    
-
+                color: styles.$nav-text-color
 
 section
-    background-color: $main-background-color
-    
-    height: "100vh"
+    background-color: styles.$main-background-color
     overflow-y: scroll
 
-
 footer
-    background-color: $main-background-color
-    color: $main-text-color
+    background-color: styles.$main-background-color
+    color: styles.$main-text-color
     padding: 1rem
-    font-family: $secondary-font
+    font-family: styles.$secondary-font
     
     /* Positioning */
     width: 100%
@@ -74,7 +59,7 @@ footer
 
 
 .accent-icon
-    color: $highlight-icon-color
+    color: styles.$highlight-icon-color
     margin-left: 1rem
 
 
