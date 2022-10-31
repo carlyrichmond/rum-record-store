@@ -20,10 +20,11 @@ export function RecordCardComponent(props) {
       <div className={styles['available-formats']}>
         <label className={styles['available-formats-label']}>Available formats</label>
         <div data-testid='format-icon-collection' className={styles['format-icons']}>
-        { 
+        { props.record.formats.length > 0 ?
         props.record.formats.map((format, index) => 
         (<FontAwesomeIcon key={index} icon={formatIconMap[format]}/>)
-        )}
+        ) : 
+        <label className='no-formats-available-label'>N/A</label>}
         </div>
       </div>
     </div>

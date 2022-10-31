@@ -8,21 +8,27 @@ import { AppComponent } from './app.component';
 import { MainSplashComponent } from './main-splash/main-splash.component';
 import { RecordListComponent } from './record-list/record-list.component';
 import { RecordService } from './record-list/record.service';
+import { RecordCardComponent } from './record-card/record-card.component';
 
 const routes: Routes = [
   { path: '', component: MainSplashComponent },
   { path: 'records', component: RecordListComponent },
-]
+];
 
 @NgModule({
-  declarations: [AppComponent, MainSplashComponent, RecordListComponent],
+  declarations: [
+    AppComponent,
+    MainSplashComponent,
+    RecordCardComponent,
+    RecordListComponent
+  ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
     HttpClientModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes)
   ],
   providers: [RecordService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

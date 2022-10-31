@@ -1,0 +1,15 @@
+<div class='record-card' data-testid='record-card'>
+    <img [src]='record.imagePath' alt='Record'/>
+    <div class='record-details'>
+        <h2>{{record.title}}</h2>
+        <h3>{{record.artist}}</h3>
+        <div class='available-formats'>
+        <label class='available-formats-label'>Available formats</label>
+            <div data-testid='format-icon-collection' class='format-icons'>
+                <fa-icon *ngFor='let format of record.formats' class='accent-icon' 
+                [icon]='formatIconMap[format]'></fa-icon>
+                <label class='no-formats-available-label' *ngIf='record.formats.length === 0'>N/A</label>
+            </div>
+        </div>
+    </div>
+</div>

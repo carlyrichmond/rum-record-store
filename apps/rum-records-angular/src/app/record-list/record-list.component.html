@@ -1,4 +1,4 @@
 <div class='container' *ngIf='(records$ | async) as records'>
-    <label *ngFor='let record of records'>{{record.title}}</label>
+    <rum-record-store-record-card *ngFor='let record of records' [record]='record'></rum-record-store-record-card>
     <label *ngIf='records.length === 0' class='no-records-label'>No records found</label> 
 </div>
