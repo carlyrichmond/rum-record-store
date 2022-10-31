@@ -10,11 +10,13 @@ import { RecordListComponent } from './record-list/record-list.component';
 import { RecordService } from './record-list/record.service';
 import { RecordCardComponent } from './record-card/record-card.component';
 import { EventListComponent } from './event-list/event-list.component';
+import { NewsListComponent } from './news-list/news-list.component';
 
 const routes: Routes = [
   { path: '', component: MainSplashComponent },
   { path: 'records', component: RecordListComponent },
-  { path: 'events', component: EventListComponent }
+  { path: 'events', component: EventListComponent },
+  { path: 'news', component: NewsListComponent }
 ];
 
 @NgModule({
@@ -24,6 +26,7 @@ const routes: Routes = [
     RecordCardComponent,
     RecordListComponent,
     EventListComponent,
+    NewsListComponent,
   ],
   imports: [
     BrowserModule,
