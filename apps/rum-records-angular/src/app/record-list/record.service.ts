@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 import { MusicRecord } from './music-record';
@@ -16,6 +16,10 @@ export class RecordService {
     return this.http.get<MusicRecord[]>(url).pipe(map(
       records => {
         return this.enrichRecordsWithImages(records);
+    }), 
+    catchError(error => {
+      console.log(`Error: ${error.message}`);
+      return of([]);
     }));
   }
 
