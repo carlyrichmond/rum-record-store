@@ -16,7 +16,7 @@ This application provides the code examples for the talk *Are They Really Using 
 
 ### Architecture
 
-The server and React frontend components make use of Elastic APM and RUM agents respectively. These agents establish the communication with the APM server which in turn pushes the events to Elasticsearch for visualisation in Kibana. The architecture is presented below:
+The server and React frontend components make use of Elastic APM and RUM agents respectively. These agents establish communication with the APM server which in turn pushes the events to Elasticsearch for visualisation in Kibana. The architecture is presented below:
 
 <p style="text-align: center;"><img src="./docs/rum-architecture-images/rum-architecture-apm-and-otel.png" width="450"></p>
 
@@ -26,8 +26,7 @@ This project comprises several applications, visible within the *apps* folder:
 
 1. *rum-records-server*: Java Spring Boot Webflux Application with Elastic Java APM on the [main branch](https://github.com/carlyrichmond/rum-record-store/tree/main) and Open Telemetry on the [otel branch](https://github.com/carlyrichmond/rum-record-store/tree/otel).
 2. *rum-records-react*: JavaScript React UI, connected to *rum-records-server*.
-3. *rum-records-angular*: Angular TypeScript UI, currently under development.
-4. *rum-records-vanilla*: JavaScript UI application, currently under development.
+3. *rum-records-angular*: Angular TypeScript UI, connected to *rum-records-server*.
 
 Each UI component also has a corresponding e2e, or end-to-end, testing suite, implemented using [Cypress](https://www.cypress.io/) and postfixed with e2e. For example, the e2e suite for *rum-records-react* is *rum-records-react-e2e*.
 
