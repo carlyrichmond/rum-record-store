@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { ApmErrorHandler, ApmModule, ApmService } from '@elastic/apm-rum-angular'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
@@ -29,16 +30,35 @@ const routes: Routes = [
     RecordListComponent,
     EventListComponent,
     NewsListComponent,
-    SearchBarComponent,
+    SearchBarComponent
   ],
   imports: [
+    ApmModule,
     BrowserModule,
     FontAwesomeModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes)
   ],
-  providers: [RecordService],
+  providers: [
+    ApmService,
+    {
+      provide: ErrorHandler,
+      useClass: ApmErrorHandler
+    },
+    RecordService
+  ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+
+  constructor(apmService: ApmService) {
+    apmService.init({
+      serviceName: 'rum-records-angular-ui',
+      distributedTracingOrigins: ['http://localhost:8080'], // front to back instrumentation
+      serverUrl: 'https://e27b61b76ab2406a9da20520f384f88b.apm.eu-west-2.aws.cloud.es.io:443',
+      serviceVersion: '1',
+      environment: 'dev'
+    })
+  }
+}
