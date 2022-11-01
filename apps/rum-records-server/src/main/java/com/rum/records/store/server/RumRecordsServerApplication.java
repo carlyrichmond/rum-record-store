@@ -9,7 +9,13 @@ import co.elastic.apm.attach.ElasticApmAttacher;
 public class RumRecordsServerApplication {
 
 	public static void main(String[] args) {
-		ElasticApmAttacher.attach();
+
+		String otelPath = System.getProperty("otel.javaagent.configuration-file");
+		boolean isApmEnabled = otelPath == null;
+
+		if (isApmEnabled){
+			ElasticApmAttacher.attach();
+		}
 		SpringApplication.run(RumRecordsServerApplication.class, args);
 	}
 

@@ -24,7 +24,7 @@ The server and React frontend components make use of Elastic APM and RUM agents 
 
 This project comprises several applications, visible within the *apps* folder:
 
-1. *rum-records-server*: Java Spring Boot Webflux Application with Elastic Java APM on the [main branch](https://github.com/carlyrichmond/rum-record-store/tree/main) and Open Telemetry on the [otel branch](https://github.com/carlyrichmond/rum-record-store/tree/otel).
+1. *rum-records-server*: Java Spring Boot Webflux Application with Elastic Java APM and [Open Telemetry](). The Spring Boot application checks for the *otel.javaagent.configuration-file* from the command line process and will attach the Elastic APM agent only if that value is null. Otherwise, the OTEL agent will run as per the vmArgs configuration. The sample commands for both approaches are in *.vscode/launch.json*.
 2. *rum-records-react*: JavaScript React UI, connected to *rum-records-server*.
 3. *rum-records-angular*: Angular TypeScript UI, connected to *rum-records-server*.
 

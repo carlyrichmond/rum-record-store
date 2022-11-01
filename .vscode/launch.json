@@ -5,10 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
+            // Launch server application using Elastic APM agent
             "type": "java",
-            "name": "Launch RumRecordsServerApplication",
+            "name": "APM Launch RumRecordsServerApplication",
             "request": "launch",
             "mainClass": "com.rum.records.store.server.RumRecordsServerApplication",
+            "projectName": "rum-records-store"
+        },
+        {
+            // Launch server application using OTEL Java agent
+            "type": "java",
+            "name": "OTEL Launch RumRecordsServerApplication",
+            "request": "launch",
+            "mainClass": "com.rum.records.store.server.RumRecordsServerApplication",
+            "vmArgs": "-javaagent:apps/rum-records-server/src/main/resources/otel/opentelemetry-javaagent.jar -Dotel.javaagent.configuration-file=apps/rum-records-server/src/main/resources/otel/elasticotel.properties",
             "projectName": "rum-records-store"
         },
         {
