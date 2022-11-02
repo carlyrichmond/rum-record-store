@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:4205"})
+@CrossOrigin(origins = {"http://localhost:4200"})
 @RequestMapping("/records")
 public class RecordController {
     
