@@ -18,7 +18,7 @@
             "name": "OTEL Launch RumRecordsServerApplication",
             "request": "launch",
             "mainClass": "com.rum.records.store.server.RumRecordsServerApplication",
-            "vmArgs": "-javaagent:apps/rum-records-server/src/main/resources/otel/opentelemetry-javaagent.jar -Dotel.javaagent.configuration-file=apps/rum-records-server/src/main/resources/otel/elasticotel.properties",
+            "vmArgs": "-javaagent:apps/record-store-server-java/src/main/resources/otel/opentelemetry-javaagent.jar -Dotel.javaagent.configuration-file=apps/record-store-server-java/src/main/resources/otel/elasticotel.properties",
             "projectName": "rum-records-store"
         },
         {
