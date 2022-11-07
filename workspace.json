@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "record-store-server-java": "apps/record-store-server-java",
+    "record-store-server-node-js": "apps/record-store-server-node-js",
     "record-store-server-node-ts": "apps/record-store-server-node-ts",
     "rum-records-angular": "apps/rum-records-angular",
     "rum-records-angular-e2e": "apps/rum-records-angular-e2e",

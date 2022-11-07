@@ -24,10 +24,10 @@ The server and React frontend components make use of Elastic APM and RUM agents 
 
 This project comprises of several applications, visible within the *apps* folder:
 
-1. *rum-records-server*: Java Spring Boot Webflux Application with Elastic Java APM and [Open Telemetry Java agent](https://opentelemetry.io/docs/instrumentation/java/). The Spring Boot application checks for the *otel.javaagent.configuration-file* from the command line process and will attach the Elastic APM agent only if that value is null. Otherwise, the OTEL agent will run as per the vmArgs configuration. The sample commands for both approaches are in *.vscode/launch.json*.
-2. *rum-records-react*: JavaScript React UI, connected to *rum-records-server*.
-3. *rum-records-angular*: Angular TypeScript UI, connected to *record-store-server*.
-4. *record-store-server*: Express and JavaScript server, in progress.
+1. *record-store-server-java*: Java Spring Boot Webflux Application with Elastic Java APM and [Open Telemetry Java agent](https://opentelemetry.io/docs/instrumentation/java/). The Spring Boot application checks for the *otel.javaagent.configuration-file* from the command line process and will attach the Elastic APM agent only if that value is null. Otherwise, the OTEL agent will run as per the vmArgs configuration. The sample commands for both approaches are in *.vscode/launch.json*.
+2. *rum-records-react*: JavaScript React UI, connected to *record-store-server-java*.
+3. *rum-records-angular*: Angular TypeScript UI, connected to *record-store-server-node*.
+4. *record-store-server-node*: Express server, with JavaScript and Typescript examples denoted by the js and ts postfixes respectively.
 
 Each UI component also has a corresponding e2e, or end-to-end, testing suite, implemented using [Cypress](https://www.cypress.io/) and postfixed with e2e. For example, the e2e suite for *rum-records-react* is *rum-records-react-e2e*.
 
@@ -39,15 +39,16 @@ UI
 ```
 npm install
 nx serve rum-records-react
+nx serve rum-records-angular --port 4205
 ```
 
-SERVER
+SERVER (see launch.json for sample vmArgs)
 ```
 cd apps/rum-records-server
 mvn spring-boot:start
 ```
 
-The application will be available at http://localhost:4200/, connecting to the Java application running at http://localhost:8080/. The app will automatically reload if you change any of the source files.
+The application will be available at http://localhost:4200/ by default unless you set an alternative port as you can see in the above Angular example. The React application connects to the Java application running at http://localhost:8080/. Meanwhile, the Angular application will connect to the Node server. All services will automatically reload if you change any of the source files.
 
 ## Build
 
