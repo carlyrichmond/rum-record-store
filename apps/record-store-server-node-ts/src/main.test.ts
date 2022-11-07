@@ -1,5 +1,5 @@
 import app from './main';
-import * as request from 'supertest';
+import request from 'supertest';
 
 describe('GET /records', () => {
   const testRequest = request(app);
