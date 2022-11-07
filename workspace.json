@@ -2,7 +2,7 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "record-store-server": "apps/record-store-server",
+    "record-store-server-node-ts": "apps/record-store-server-node-ts",
     "rum-records-angular": "apps/rum-records-angular",
     "rum-records-angular-e2e": "apps/rum-records-angular-e2e",
     "rum-records-react": "apps/rum-records-react",

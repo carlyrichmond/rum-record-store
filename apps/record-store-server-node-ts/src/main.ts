@@ -2,13 +2,13 @@
  * This is not a production server yet!
  * This is only a minimal backend to get started.
  */
- import 'elastic-apm-node/start';
+import 'elastic-apm-node/start';
 
 import express from 'express';
 import path from 'path';
 import cors from 'cors';
 
-import { environment } from './environments/environment'
+import { environment } from './environments/environment';
 
 import { allRecords, filterRecords } from './records';
 
@@ -17,7 +17,7 @@ const app = express();
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 const options: cors.CorsOptions = {
-  origin: environment.allowedOrigin
+  origin: environment.allowedOrigin,
 };
 app.use(cors(options));
 
