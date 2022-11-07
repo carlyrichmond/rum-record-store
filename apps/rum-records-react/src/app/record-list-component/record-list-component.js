@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-import { baseURL } from '../config';
+import { environment} from '../../environments/environment';
 import RecordCardComponent from '../record-card-component/record-card-component';
 
 import styles from './record-list-component.module.scss';
@@ -22,7 +22,7 @@ export function RecordListComponent({ query }) {
   useEffect(() => {
     async function getRecords() {
       try {
-        let url = `${baseURL}/records/`;
+        let url = `${environment.baseUrl}/records/`;
 
         if (query) {
           url += `${query}`;

@@ -25,8 +25,8 @@ The server and React frontend components make use of Elastic APM and RUM agents 
 This project comprises of several applications, visible within the *apps* folder:
 
 1. *record-store-server-java*: Java Spring Boot Webflux Application with Elastic Java APM and [Open Telemetry Java agent](https://opentelemetry.io/docs/instrumentation/java/). The Spring Boot application checks for the *otel.javaagent.configuration-file* from the command line process and will attach the Elastic APM agent only if that value is null. Otherwise, the OTEL agent will run as per the vmArgs configuration. The sample commands for both approaches are in *.vscode/launch.json*.
-2. *rum-records-react*: JavaScript React UI, connected to *record-store-server-java*.
-3. *rum-records-angular*: Angular TypeScript UI, connected to *record-store-server-node*.
+2. *rum-records-react*: JavaScript React UI, connected to *record-store-server-node*.
+3. *rum-records-angular*: Angular TypeScript UI, connected to *record-store-server-java*.
 4. *record-store-server-node*: Express server, with JavaScript and Typescript examples denoted by the js and ts postfixes respectively.
 
 Each UI component also has a corresponding e2e, or end-to-end, testing suite, implemented using [Cypress](https://www.cypress.io/) and postfixed with e2e. For example, the e2e suite for *rum-records-react* is *rum-records-react-e2e*.
@@ -35,20 +35,34 @@ Each UI component also has a corresponding e2e, or end-to-end, testing suite, im
 
 Running the UI and server together requires starting both components via the below commands from folder *rum-records-store*. Note that the `npm install` command only needs to be run on the first run to download local dependencies from npm.
 
-UI
+React & Node.js (* denotes js or ts implementations)
 ```
-npm install
 nx serve rum-records-react
-nx serve rum-records-angular --port 4205
+
+// Option 1: JavaScript
+nx serve record-store-server-node-js
+
+// Option 2: TypeScript
+nx serve record-store-server-node-ts
 ```
 
-SERVER (see launch.json for sample vmArgs)
+The application will be available at http://localhost:4200/ by default unless you set an alternative port. In which case you will need to change the allowed origins on the Node.js backend. The React application connects to the Node.js application running at http://localhost:3333/. *Please only run one of record-store-server-node-js or record-store-server-node-ts to prevent a port conflict as they both resolve to the same server!*
+
+Angular & Java* (*can also be triggered via VSCode config in launch.json)
 ```
-cd apps/rum-records-server
+npm install
+nx serve rum-records-angular --port 4205
+
+cd apps/record-store-server-java
+
+// Option 1: OTel 
+mvn spring-boot:start -Dspring-boot.run.jvmArguments="-javaagent:src/main/resources/otel/opentelemetry-javaagent.jar -Dotel.javaagent.configuration-file=src/main/resources/otel/elasticotel.properties"
+
+// Option 2: Elastic APM Agent 
 mvn spring-boot:start
 ```
 
-The application will be available at http://localhost:4200/ by default unless you set an alternative port as you can see in the above Angular example. The React application connects to the Java application running at http://localhost:8080/. Meanwhile, the Angular application will connect to the Node server. All services will automatically reload if you change any of the source files.
+ The Angular application running at http://localhost:4205/, as above we have specified the port option to avoid conflict with the React application. This frontend will connect to the Java server running at http://localhost:8080/. *Please only run either with the OTel args or without for the Elastic APM agent to prevent a port conflict as they both resolve to the same server!*
 
 ## Build
 
@@ -78,6 +92,7 @@ Run `nx graph` to see a diagram of the dependencies of your projects.
 2. [Elastic User Experience Overview](https://www.elastic.co/guide/en/observability/current/user-experience.html)
 3. [Elastic RUM Agent](https://www.elastic.co/guide/en/apm/agent/rum-js/current/index.html)
 4. [Elastic Observability Guide](https://www.elastic.co/guide/en/observability/current/index.html) 
+5. [Open Telemetry](https://opentelemetry.io/)
 
 ## Credits
 
