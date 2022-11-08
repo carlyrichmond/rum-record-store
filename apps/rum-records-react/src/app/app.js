@@ -16,7 +16,7 @@ export function App() {
 
   const apm = initApm({
     serviceName: 'rum-records-react-ui',
-    distributedTracingOrigins: ['http://localhost:8080'], // front to back instrumentation
+    distributedTracingOrigins: ['http://localhost:3333'], // front to back instrumentation
     serverUrl: 'https://e27b61b76ab2406a9da20520f384f88b.apm.eu-west-2.aws.cloud.es.io:443',
     serviceVersion: '1',
     environment: 'dev'
