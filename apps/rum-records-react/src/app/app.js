@@ -7,6 +7,7 @@ import { init as initApm } from '@elastic/apm-rum';
 import { ApmRoute } from '@elastic/apm-rum-react';
 
 import styles from './app.module.scss';
+import { environment } from '../environments/environment';
 import MainSplashComponent from './main-splash-component/main-splash-component';
 import EventListComponent from './event-list-component/event-list-component';
 import NewsListComponent from './news-list-component/news-list-component';
@@ -17,7 +18,7 @@ export function App() {
   const apm = initApm({
     serviceName: 'rum-records-react-ui',
     distributedTracingOrigins: ['http://localhost:3333'], // front to back instrumentation
-    serverUrl: 'https://e27b61b76ab2406a9da20520f384f88b.apm.eu-west-2.aws.cloud.es.io:443',
+    serverUrl: environment.elastic_deployment_url,
     serviceVersion: '1',
     environment: 'dev'
   });

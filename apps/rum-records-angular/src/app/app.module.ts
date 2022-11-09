@@ -14,6 +14,7 @@ import { RecordCardComponent } from './record-card/record-card.component';
 import { EventListComponent } from './event-list/event-list.component';
 import { NewsListComponent } from './news-list/news-list.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { environment } from '../environments/environment';
 
 const routes: Routes = [
   { path: '', component: MainSplashComponent },
@@ -56,7 +57,7 @@ export class AppModule {
     apmService.init({
       serviceName: 'rum-records-angular-ui',
       distributedTracingOrigins: ['http://localhost:8080'], // front to back instrumentation
-      serverUrl: 'https://e27b61b76ab2406a9da20520f384f88b.apm.eu-west-2.aws.cloud.es.io:443',
+      serverUrl: environment.elastic_deployment_url,
       serviceVersion: '1',
       environment: 'dev'
     })

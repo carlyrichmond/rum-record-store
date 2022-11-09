@@ -6,8 +6,8 @@
  const apm = require('elastic-apm-node').start({
     serviceName: 'record-store-server-node-js',
     serviceVersion: '1',
-    serverUrl: 'https://e27b61b76ab2406a9da20520f384f88b.apm.eu-west-2.aws.cloud.es.io:443',
-    secretToken: 'ELASTIC_APM_AUTH_TOKEN',
+    serverUrl: process.env.ELASTIC_DEPLOYMENT_URL,
+    secretToken: process.env.ELASTIC_APM_AUTH_TOKEN,
     environment: 'dev',
     opentelemetryBridgeEnabled: true
   });
