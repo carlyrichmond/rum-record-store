@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-      - uses: mansagroup/nrwl-nx-action@v2
+      - uses: mansagroup/nrwl-nx-action
         with:
           node-version: '16'
           targets: lint,build,test
