@@ -1,0 +1,14 @@
+name: rum-records-react-node-deploy
+run-name: ${{ github.actor }} is deploying the latest Rum Records React & Node.js
+on: [push]
+jobs:
+  nx-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - uses: mansagroup/nrwl-nx-action@v2
+        with:
+          node-version: '16'
+          targets: lint,build,test
+          projects: rum-records-react,record-store-server-node-js
