@@ -16,6 +16,6 @@ jobs:
       - run: npm ci
 
       - run: npx nx workspace-lint
-      - run: npx nx affected --target=lint --parallel=3
-      - run: npx nx affected --target=test --parallel=3 --ci --code-coverage
-      - run: npx nx affected --target=build --parallel=3
+      - run: npx nx run-many --target=lint --projects=rum-records-react,record-store-server-node-js --parallel=3
+      - run: npx nx run-many --target=test --projects=rum-records-react,record-store-server-node-js --parallel=3 --ci --code-coverage
+      - run: npx nx run-many --target=build --projects=rum-records-react,record-store-server-node-js --parallel=3
