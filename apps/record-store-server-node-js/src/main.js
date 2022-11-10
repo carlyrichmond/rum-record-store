@@ -3,7 +3,7 @@
  * This is only a minimal backend to get started.
  */
 
- const apm = require('elastic-apm-node').start({
+ require('elastic-apm-node').start({
     serviceName: 'record-store-server-node-js',
     serviceVersion: '1',
     serverUrl: process.env.ELASTIC_DEPLOYMENT_URL,

@@ -15,7 +15,7 @@ import SearchRecordsComponent from './search-records-component/search-records-co
 
 export function App() {
 
-  const apm = initApm({
+  initApm({
     serviceName: 'rum-records-react-ui',
     distributedTracingOrigins: ['http://localhost:3333'], // front to back instrumentation
     serverUrl: environment.elastic_deployment_url,
