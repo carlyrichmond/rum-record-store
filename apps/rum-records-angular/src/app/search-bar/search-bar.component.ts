@@ -24,7 +24,7 @@ export class SearchBarComponent implements OnInit {
   }
 
   public searchRecords() {
-    this._router.navigateByUrl(`/records?terms=${this.terms}`)
+    this._router.navigateByUrl(`/records?terms=${this.terms?.toLowerCase()}`)
     return;
   }
 }

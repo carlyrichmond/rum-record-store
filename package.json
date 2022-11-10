@@ -7,6 +7,7 @@
     "build": "nx build",
     "test": "nx test --detectOpenHandles",
     "e2e-rum-react": "npx nx e2e rum-records-react-e2e --browser chrome && npx nx e2e rum-records-react-e2e --browser edge && npx nx e2e rum-records-react-e2e --browser electron",
+    "e2e-rum-angular": "npx nx e2e rum-records-angular-e2e --browser chrome && npx nx e2e rum-records-angular-e2e --browser edge && npx nx e2e rum-records-angular-e2e --browser electron",
     "postinstall": "ngcc --properties es2020 browser module main"
   },
   "private": true,
