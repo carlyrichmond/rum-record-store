@@ -11,3 +11,4 @@ jobs:
           node-version: '16'
           targets: lint,build,test
           projects: rum-records-react,record-store-server-node-js
+          workingDirectory: ./
