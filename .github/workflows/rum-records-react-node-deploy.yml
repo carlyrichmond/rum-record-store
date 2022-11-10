@@ -1,14 +1,22 @@
-name: rum-records-react-node-deploy
-run-name: ${{ github.actor }} is deploying the latest Rum Records React & Node.js
-on: [push]
+name: Build, Test and Deploy RUM Records
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
 jobs:
-  nx-build:
+  main:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: mansagroup/nrwl-nx-action@v2
+      - uses: actions/checkout@v2
         with:
-          node-version: '16'
-          targets: lint,build,test
-          projects: rum-records-react,record-store-server-node-js
-          workingDirectory: ./
+          fetch-depth: 0
+      - uses: nrwl/nx-set-shas@v3
+      - run: npm ci
+
+      - run: npx nx workspace-lint
+      - run: npx nx format:check
+      - run: npx nx affected --target=lint --parallel=3
+      - run: npx nx affected --target=test --parallel=3 --ci --code-coverage
+      - run: npx nx affected --target=build --parallel=3
