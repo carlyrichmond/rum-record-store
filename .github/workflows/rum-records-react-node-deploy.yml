@@ -1,4 +1,6 @@
 name: Build, Test and Deploy RUM Records
+env: 
+    ELASTIC_APM_AUTH_TOKEN: ${{ secrets.ELASTIC_APM_AUTH_TOKEN }}
 on:
   push:
     branches:
