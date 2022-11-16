@@ -17,8 +17,7 @@
         "tsConfig": "apps/rum-records-react/tsconfig.app.json",
         "assets": [
           "apps/rum-records-react/src/favicon.ico",
-          "apps/rum-records-react/src/assets",
-          "apps/rum-records-react/src/netlify.toml"
+          "apps/rum-records-react/src/assets"
         ],
         "styles": ["apps/rum-records-react/src/styles.scss"],
         "scripts": [],
