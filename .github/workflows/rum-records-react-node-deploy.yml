@@ -21,5 +21,4 @@ jobs:
       - run: npx nx workspace-lint
       - run: npx nx run-many --target=lint --projects=rum-records-react,record-store-server-node-js --parallel=2
       - run: npx nx run-many --target=test --projects=rum-records-react,record-store-server-node-js --parallel=2 --ci --code-coverage
-      - run: npx nx serve record-store-server-node-js && npx nx e2e rum-records-react-e2e
       - run: npx nx run-many --target=build --projects=rum-records-react,record-store-server-node-js --parallel=2
