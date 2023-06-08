@@ -8,5 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class NewsListComponent implements OnInit {
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    throw new Error("No news available");
+  }
 }
