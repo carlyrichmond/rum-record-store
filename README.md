@@ -11,6 +11,8 @@ This application provides the code examples for the talk *Are They Really Using 
 1. Lean Agile Scotland
 2. London Java Community
 3. Modern Frontends Live!
+4. Geekle Java Summit
+5. DevOps Days Birmingham
 
 ## Overview
 
@@ -40,10 +42,10 @@ React & Node.js (* denotes js or ts implementations)
 nx serve rum-records-react
 
 // Option 1: JavaScript
-nx serve record-store-server-node-js
+ ./apps/record-store-server-node-ts/scripts/start-with-elastic-apm.sh
 
 // Option 2: TypeScript
-nx serve record-store-server-node-ts
+ ./apps/record-store-server-node-js/scripts/start-with-elastic-apm.sh
 ```
 
 The application will be available at http://localhost:4200/ by default unless you set an alternative port. In which case you will need to change the allowed origins on the Node.js backend. The React application connects to the Node.js application running at http://localhost:3333/. *Please only run one of record-store-server-node-js or record-store-server-node-ts to prevent a port conflict as they both resolve to the same server!*
