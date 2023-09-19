@@ -13,6 +13,7 @@ This application provides the code examples for the talk *Are They Really Using 
 3. Modern Frontends Live!
 4. Geekle Java Summit
 5. DevOps Days Birmingham
+6. React Live
 
 ## Overview
 
