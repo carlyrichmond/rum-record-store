@@ -1,4 +1,6 @@
+import { BrowserRouter } from 'react-router-dom';
 import { render } from '@testing-library/react';
+
 import SearchRecordsComponent from './search-records-component';
 
 jest.mock('react-router-dom', () => ({
@@ -10,7 +12,7 @@ jest.mock('react-router-dom', () => ({
 
 describe('SearchRecordsComponent', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<SearchRecordsComponent />);
+    const { baseElement } = render(<BrowserRouter><SearchRecordsComponent /></BrowserRouter>);
     expect(baseElement).toBeTruthy();
   });
 });
