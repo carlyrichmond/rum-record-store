@@ -1,10 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, Route, Outlet } from 'react-router-dom';
 
 import { faMugSaucer, faRecordVinyl } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { init as initApm } from '@elastic/apm-rum';
-import { ApmRoute } from '@elastic/apm-rum-react';
+import { ApmRoutes } from '@elastic/apm-rum-react';
 
 import styles from './app.module.scss';
 import { environment } from '../environments/environment';
@@ -14,23 +14,22 @@ import NewsListComponent from './news-list-component/news-list-component';
 import SearchRecordsComponent from './search-records-component/search-records-component';
 
 export function App() {
-
   initApm({
     serviceName: 'rum-records-react-ui',
     distributedTracingOrigins: ['http://localhost:3333'], // front to back instrumentation
     serverUrl: environment.elastic_deployment_url,
     serviceVersion: '1',
-    environment: 'dev'
+    environment: 'dev',
   });
 
   return (
     <>
       <header>
-          <Link className={styles['company-header']} to="/">
-            <h1 className={styles['app-header']} data-testid="company-header">
-              RUM Records <FontAwesomeIcon icon={faRecordVinyl} />
-            </h1>
-          </Link>
+        <Link className={styles['company-header']} to="/">
+          <h1 className={styles['app-header']} data-testid="company-header">
+            RUM Records <FontAwesomeIcon icon={faRecordVinyl} />
+          </h1>
+        </Link>
       </header>
       <br />
       <nav>
@@ -48,23 +47,15 @@ export function App() {
       </nav>
       <hr />
       <section>
-          <ApmRoute
-            path="/"
-            exact
-            component={MainSplashComponent}
-          />
-          <ApmRoute
-            path="/records"
-            component={SearchRecordsComponent}            
-          />
-          <ApmRoute
-            path="/events"
-            component={EventListComponent}
-          />
-          <ApmRoute
-            path="/news"
-            component={NewsListComponent}
-          />
+        <ApmRoutes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<MainSplashComponent />} />
+            <Route path="/records" element={<SearchRecordsComponent />} />
+            <Route path="/events" element={<EventListComponent />} />
+            <Route path="/news" element={<NewsListComponent />} />
+          </Route>
+        </ApmRoutes>
+        <Outlet />
       </section>
       <footer>
         Made by Carly Richmond with love and excessive amounts of tea
@@ -73,4 +64,11 @@ export function App() {
     </>
   );
 }
+
+function Layout() {
+  return (
+    <Outlet />
+  )
+}
+
 export default App;

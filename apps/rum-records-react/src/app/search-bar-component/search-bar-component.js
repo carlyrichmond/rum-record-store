@@ -1,17 +1,17 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './search-bar-component.module.scss';
 
 export function SearchBarComponent(props) {
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   function searchRecords(event) {
     if (event?.key === 'Enter') {
       const queryTerms = event.currentTarget.value.toLowerCase();
-      history.push(`/records?terms=${queryTerms}`);
+      navigate(`/records?terms=${queryTerms}`);
       window.location.reload();
     }
   }
