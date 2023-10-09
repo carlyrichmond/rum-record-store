@@ -55,7 +55,6 @@ export function App() {
             <Route path="/news" element={<NewsListComponent />} />
           </Route>
         </ApmRoutes>
-        <Outlet />
       </section>
       <footer>
         Made by Carly Richmond with love and excessive amounts of tea
