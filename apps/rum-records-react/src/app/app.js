@@ -19,7 +19,9 @@ export function App() {
     distributedTracingOrigins: ['http://localhost:3333'], // front to back instrumentation
     serverUrl: environment.elastic_deployment_url,
     serviceVersion: '1',
-    environment: 'dev',
+    environment: environment.production ? 'prod' : 'dev',
+    // How to enable debug mode if needed
+    // logLevel: 'debug'
   });
 
   return (

@@ -6,7 +6,7 @@ A monorepo containing several UI and server components showcasing Elastic User E
 
 <p style="text-align: center;"><img src="./docs/screenshots/rum-records-react.png" width="450"></p>
 
-This application provides the code examples for the talk *Are They Really Using It?*, to be given at several forums including:
+This application provides the code examples for the talk *Are They Really Using It?*, presented at several conferences and meetups including:
 
 1. Lean Agile Scotland
 2. London Java Community
@@ -14,6 +14,7 @@ This application provides the code examples for the talk *Are They Really Using 
 4. Geekle Java Summit
 5. DevOps Days Birmingham
 6. React Live
+7. Codemotion Madrid
 
 ## Overview
 
@@ -43,10 +44,10 @@ React & Node.js (* denotes js or ts implementations)
 nx serve rum-records-react
 
 // Option 1: JavaScript
- ./apps/record-store-server-node-ts/scripts/start-with-elastic-apm.sh
+ ./apps/record-store-server-node-js/scripts/start-with-elastic-apm.sh
 
 // Option 2: TypeScript
- ./apps/record-store-server-node-js/scripts/start-with-elastic-apm.sh
+ ./apps/record-store-server-node-ts/scripts/start-with-elastic-apm.sh
 ```
 
 The application will be available at http://localhost:4200/ by default unless you set an alternative port. In which case you will need to change the allowed origins on the Node.js backend. The React application connects to the Node.js application running at http://localhost:3333/. *Please only run one of record-store-server-node-js or record-store-server-node-ts to prevent a port conflict as they both resolve to the same server!*
