@@ -21,7 +21,8 @@ public class RecordController {
 
     @GetMapping
     private Flux<MusicRecord> getAllRecords() {
-        return recordRepository.findAllRecords();
+
+      return recordRepository.findAllRecords();
     }
 
     @GetMapping("/{query}")

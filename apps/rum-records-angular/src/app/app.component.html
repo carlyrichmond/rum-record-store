@@ -1,0 +1,29 @@
+<header>
+  <a class="company-header" href="/">
+    <h1 className="app-header" data-testid="company-header">
+      RUM Records <fa-icon class="accent-icon" [icon]="faRecordVinyl"></fa-icon>
+    </h1>
+  </a>
+</header>
+<br />
+<nav>
+<ul className="nav-bar">
+  <li>
+    <a href="/records">Records</a>
+  </li>
+  <li>
+    <a href="/events">Events</a>
+  </li>
+  <li>
+    <a href="/news">News</a>
+  </li>
+</ul>
+</nav>
+<hr />
+<section style="height: 100vh">
+  <router-outlet></router-outlet>
+</section>
+<footer>
+Made by Carly Richmond with love and excessive amounts of tea
+<fa-icon class="accent-icon footer-icon" [icon]="faMugSaucer"></fa-icon>
+</footer>
