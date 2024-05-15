@@ -18,6 +18,8 @@ jobs:
       - run: npm ci && npm run test
         working-directory: ./apps/rum-records-react
       - run: npm ci && npm run test
+        working-directory: ./apps/rum-records-angular           
+      - run: npm ci && npm run test
         working-directory: ./apps/record-store-server-node-js
       - run: npm ci && npm run test
         working-directory: ./apps/record-store-server-node-ts   
