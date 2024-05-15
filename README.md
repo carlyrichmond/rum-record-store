@@ -37,54 +37,63 @@ Each UI component also has a corresponding e2e, or end-to-end, testing suite, im
 
 ## Running Locally
 
-Running the UI and server together requires starting both components via the below commands from folder *rum-records-store*. Note that the `npm install` command only needs to be run on the first run to download local dependencies from npm.
+Running the UI and server together requires starting both components via the below commands from the folder _rum-records-store_. Note that the `npm install` command only needs to be run on the first run to download local dependencies from npm.
 
 React & Node.js (* denotes js or ts implementations)
 ```
-nx serve rum-records-react
+cd apps/rum-records-react
+npm run start
 
 // Option 1: JavaScript
- ./apps/record-store-server-node-js/scripts/start-with-elastic-apm.sh
+cd apps/record-store-server-node-js
+npm run start
 
 // Option 2: TypeScript
- ./apps/record-store-server-node-ts/scripts/start-with-elastic-apm.sh
+cd apps/record-store-server-node-ts
+npm run start
 ```
 
 The application will be available at http://localhost:3000/ by default unless you set an alternative port. In which case you will need to change the allowed origins on the Node.js backend. The React application connects to the Node.js application running at http://localhost:3333/. *Please only run one of record-store-server-node-js or record-store-server-node-ts to prevent a port conflict as they both resolve to the same server!*
 
 Angular & Java* (*can also be triggered via VSCode config in launch.json)
 ```
+cd apps/rum-records-angular
 npm install
-nx serve rum-records-angular --port 4205
+npm run start
 
 cd apps/record-store-server-java
 
 // Option 1: OTel 
-mvn spring-boot:start -Dspring-boot.run.jvmArguments="-javaagent:src/main/resources/otel/opentelemetry-javaagent.jar -Dotel.javaagent.configuration-file=src/main/resources/otel/elasticotel.properties"
+// Ensure you have the required env variables as commented in the script
+cd apps/record-store-server-java
+./run-with-otel.sh
 
 // Option 2: Elastic APM Agent 
-mvn spring-boot:start
+// Ensure you have the required env variables as commented in the script
+cd apps/record-store-server-java
+./run-with-elastic-apm.sh
 ```
 
- The Angular application running at http://localhost:4205/, as above we have specified the port option to avoid conflict with the React application. This frontend will connect to the Java server running at http://localhost:8080/. *Please only run either with the OTel args or without for the Elastic APM agent to prevent a port conflict as they both resolve to the same server!*
-
-## Build
-
-To build any apps within the repo, run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+ The Angular application running at http://localhost:4205/, as above we have specified the port option to avoid conflict with the React application. This frontend will connect to the Java server running at http://localhost:8080/. *Please only run either the OTel or APM scripts to prevent a port conflict as they both resolve to the same server!*
 
 ## Running unit tests
 
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
+Run `npm run test` to execute the unit tests for each component from their respective directories.
 
 ## Running end-to-end tests
 
-Run `npx nx e2e my-app-e2e-suite` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
+Both the React and Angular components have E2E test suites defined. Run `npm run cy:run:<browser>` to execute the end-to-end tests via [Cypress](https://www.cypress.io) using a particular browser (Chrome, Edge or Firefox).
 
-For example, the e2e suite for rum-records-react, the main UI project, can be run via `npx nx e2e rum-records-react-e2e`. The `--watch` action opens the Cypress suite allowing for tests to be executed and debugged.
+For example, the E@E suite for `rum-records-react`, the main UI project, can be run via: 
 
-[As per this guide](https://docs.cypress.io/guides/guides/cross-browser-testing), Cypress supports test execution across multiple browsers using the `--browser` option. For example, executing tests using chrome is possible via `npx nx e2e rum-records-react-e2e --browser `. To run the test suite across Edge, Chrome and Electron browsers, use the helper command `npm run e2e-rum-react`. Note that each browser must be installed on your local machine for the task to succeed.
+```
+cd apps/rum-records-react
+npm run cy:run:chrome
+``` 
+
+The `--watch` action opens the Cypress suite allowing for tests to be executed and debugged.
+
+Note that each browser must be installed on your local machine for the task to succeed.
 
 ## Further help
 
