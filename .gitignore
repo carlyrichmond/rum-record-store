@@ -49,3 +49,6 @@ Thumbs.db
 apps/rum-records-server/src/main/resources/otel/elasticotel.properties
 apps/rum-records-server/src/main/resources/elasticapm.properties
 apps/record-store-server/scripts/start-with-elastic-apm.sh
+
+.envrc
+/**/environments/*

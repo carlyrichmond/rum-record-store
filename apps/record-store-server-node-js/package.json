@@ -1,0 +1,35 @@
+{
+  "name": "record-store-server-node-js",
+  "version": "1.0.0",
+  "description": "Sample Record Store Server with JavaScript and Instrumentation",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "jest --testTimeout=5000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlyrichmond/rum-record-store.git"
+  },
+  "author": "Carly Richmond",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlyrichmond/rum-record-store/issues"
+  },
+  "homepage": "https://github.com/carlyrichmond/rum-record-store#readme",
+  "dependencies": {
+    "@opentelemetry/api": "^1.8.0",
+    "@opentelemetry/auto-instrumentations-node": "^0.46.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "jest-junit": "^16.0.0",
+    "path": "^0.12.7",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}

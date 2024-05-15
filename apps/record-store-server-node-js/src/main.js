@@ -3,29 +3,19 @@
  * This is only a minimal backend to get started.
  */
 
- require('elastic-apm-node').start({
-    serviceName: 'record-store-server-node-js',
-    serviceVersion: '1',
-    serverUrl: process.env.ELASTIC_DEPLOYMENT_URL,
-    secretToken: process.env.ELASTIC_APM_AUTH_TOKEN,
-    environment: 'dev',
-    opentelemetryBridgeEnabled: true
-  });
-
- import * as express from 'express';
+ import express from 'express';
  import * as path from 'path';
- import * as cors from 'cors';
- 
- import { environment } from './environments/environment';
- 
- import { allRecords, filterRecords } from './records';
+ import cors from 'cors';
+
+import { allRecords, filterRecords } from './util/records.js';
  
  const app = express();
  
- app.use('/assets', express.static(path.join(__dirname, 'assets')));
+ app.use('/assets', express.static(path.join('./', 'assets')));
+ app.use('/util', express.static(path.join('./', 'util')));
  
  const options = {
-   origin: environment.allowedOrigin,
+   origin: 'http://localhost:3000',
  };
  app.use(cors(options));
  
@@ -40,7 +30,7 @@
    res.send(records);
  });
  
- const port = process.env.port || environment.defaultPort;
+ const port = process.env.port || 3333;
  const server = app.listen(port, () => {
    console.log(`Listening at http://localhost:${port}/records`);
  });

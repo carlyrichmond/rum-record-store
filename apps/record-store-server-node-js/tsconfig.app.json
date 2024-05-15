@@ -12,5 +12,5 @@
     "**/*.spec.js",
     "**/*.test.js"
   ],
-  "include": ["**/*.ts", "**/*.js"]
+  "include": ["**/*.ts", "**/*.js", "src/main.test.cjs", "jest.config.cjs"]
 }
