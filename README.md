@@ -50,7 +50,7 @@ nx serve rum-records-react
  ./apps/record-store-server-node-ts/scripts/start-with-elastic-apm.sh
 ```
 
-The application will be available at http://localhost:4200/ by default unless you set an alternative port. In which case you will need to change the allowed origins on the Node.js backend. The React application connects to the Node.js application running at http://localhost:3333/. *Please only run one of record-store-server-node-js or record-store-server-node-ts to prevent a port conflict as they both resolve to the same server!*
+The application will be available at http://localhost:3000/ by default unless you set an alternative port. In which case you will need to change the allowed origins on the Node.js backend. The React application connects to the Node.js application running at http://localhost:3333/. *Please only run one of record-store-server-node-js or record-store-server-node-ts to prevent a port conflict as they both resolve to the same server!*
 
 Angular & Java* (*can also be triggered via VSCode config in launch.json)
 ```
