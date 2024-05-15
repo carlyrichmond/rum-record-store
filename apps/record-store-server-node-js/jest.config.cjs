@@ -1,7 +1,6 @@
 /* eslint-disable */
 module.exports = {
   displayName: 'record-store-server-node-js',
-  preset: '../../jest.preset.js',
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
