@@ -15,7 +15,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - uses: nrwl/nx-set-shas@v3
       - run: npm ci && npm run test
         working-directory: ./apps/rum-records-react
       - run: npm ci && npm run test
