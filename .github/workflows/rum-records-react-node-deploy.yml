@@ -16,8 +16,7 @@ jobs:
         with:
           fetch-depth: 0
       - uses: nrwl/nx-set-shas@v3
-      - run: npm ci
-      - run: npm run test
+      - run: npm ci && npm run test
         working-directory: ./apps/rum-records-react
-      - run: npm run test
+      - run: npm ci && npm run test
         working-directory: ./apps/record-store-server-node-js        
