@@ -53,4 +53,3 @@ apps/rum-records-server/src/main/resources/elasticapm.properties
 apps/record-store-server/scripts/start-with-elastic-apm.sh
 
 .envrc
-/**/environments/*
