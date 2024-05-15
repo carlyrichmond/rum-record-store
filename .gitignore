@@ -4,6 +4,7 @@
 /dist
 /tmp
 /out-tsc
+apps/record-store-server-java/target
 
 # dependencies
 node_modules
@@ -16,6 +17,7 @@ node_modules
 *.launch
 .settings/
 *.sublime-workspace
+apps/record-store-server-java/.idea
 
 # IDE - VSCode
 .vscode/*

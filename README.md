@@ -2,7 +2,7 @@
 
 # Rum Record Store: Are They Really Using It?
 
-A monorepo containing several UI and server components showcasing Elastic User Experience Monitoring via JavaScript RUM and Java APM agents. Used to input sample user interaction data into an Elastic Observability dashboard. This project was generated using [Nx](https://nx.dev).
+A repo containing several UI and server components showcasing Elastic User Experience Monitoring via JavaScript RUM and Java APM agents. Used to input sample user interaction data into an Elastic Observability dashboard. 
 
 <p style="text-align: center;"><img src="./docs/screenshots/rum-records-react.png" width="450"></p>
 
@@ -86,14 +86,9 @@ For example, the e2e suite for rum-records-react, the main UI project, can be ru
 
 [As per this guide](https://docs.cypress.io/guides/guides/cross-browser-testing), Cypress supports test execution across multiple browsers using the `--browser` option. For example, executing tests using chrome is possible via `npx nx e2e rum-records-react-e2e --browser `. To run the test suite across Edge, Chrome and Electron browsers, use the helper command `npm run e2e-rum-react`. Note that each browser must be installed on your local machine for the task to succeed.
 
-## Understand your workspace
-
-Run `nx graph` to see a diagram of the dependencies of your projects.
-
 ## Further help
 
-1. [Nx Documentation](https://nx.dev)
-2. [Elastic User Experience Overview](https://www.elastic.co/guide/en/observability/current/user-experience.html)
+1. [Elastic User Experience Overview](https://www.elastic.co/guide/en/observability/current/user-experience.html)
 3. [Elastic RUM Agent](https://www.elastic.co/guide/en/apm/agent/rum-js/current/index.html)
 4. [Elastic Observability Guide](https://www.elastic.co/guide/en/observability/current/index.html) 
 5. [Open Telemetry](https://opentelemetry.io/)

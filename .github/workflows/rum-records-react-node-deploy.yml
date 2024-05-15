@@ -9,13 +9,29 @@ on:
   pull_request:
 
 jobs:
-  test:
+  test-js:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - run: npm ci && npm run test
         working-directory: ./apps/rum-records-react
       - run: npm ci && npm run test
-        working-directory: ./apps/record-store-server-node-js        
+        working-directory: ./apps/record-store-server-node-js
+      - run: npm ci && npm run test
+        working-directory: ./apps/record-store-server-node-js   
+  test-java:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up JDK 21 for x64
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          architecture: x64
+      - run: mvn --batch-mode --update-snapshots verify
+        working-directory: ./apps/record-store-server-java            
