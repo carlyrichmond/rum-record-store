@@ -31,7 +31,7 @@ This project comprises of several applications, visible within the *apps* folder
 1. *record-store-server-java*: Java Spring Boot Webflux Application with Elastic Java APM and [Open Telemetry Java agent](https://opentelemetry.io/docs/instrumentation/java/). The Spring Boot application checks for the *otel.javaagent.configuration-file* from the command line process and will attach the Elastic APM agent only if that value is null. Otherwise, the OTEL agent will run as per the vmArgs configuration. The sample commands for both approaches are in *.vscode/launch.json*.
 2. *rum-records-react*: JavaScript React UI, connected to *record-store-server-node*.
 3. *rum-records-angular*: Angular TypeScript UI, connected to *record-store-server-java*.
-4. *record-store-server-node*: Express server, with JavaScript and Typescript examples denoted by the js and ts postfixes respectively.
+4. *record-store-server-node*: Express server, with JavaScript and Typescript examples denoted by the js and ts postfixes respectively. The JS example uses the OTel Node.js agent, meanwhile the TS example uses the Elastic Node.js APM agent.
 
 Each UI component also has a corresponding e2e, or end-to-end, testing suite, implemented using [Cypress](https://www.cypress.io/) and postfixed with e2e. For example, the e2e suite for *rum-records-react* is *rum-records-react-e2e*.
 
