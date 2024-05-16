@@ -101,6 +101,7 @@ Note that each browser must be installed on your local machine for the task to s
 3. [Elastic RUM Agent](https://www.elastic.co/guide/en/apm/agent/rum-js/current/index.html)
 4. [Elastic Observability Guide](https://www.elastic.co/guide/en/observability/current/index.html) 
 5. [Open Telemetry](https://opentelemetry.io/)
+6. [Google Core Web Vitals](https://web.dev/explore/learn-core-web-vitals)
 
 ## Credits
 
