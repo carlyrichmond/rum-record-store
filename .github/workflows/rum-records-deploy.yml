@@ -21,7 +21,7 @@ jobs:
       - run: npm ci && npm run test
         name: rum-records-angular
         working-directory: ./apps/rum-records-angular           
-      - run: npm ci && npm run test
+      - run: npm ci && npm run test-ci
         name: record-store-server-node-js
         working-directory: ./apps/record-store-server-node-js
       - run: npm ci && npm run test
