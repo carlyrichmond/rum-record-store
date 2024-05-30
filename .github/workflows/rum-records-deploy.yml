@@ -18,10 +18,10 @@ jobs:
       - run: npm ci && npm run test
         name: rum-records-react
         working-directory: ./apps/rum-records-react
-      - run: npm ci && npm run test
+      - run: npm ci && npm run test-ci
         name: rum-records-angular
         working-directory: ./apps/rum-records-angular           
-      - run: npm ci && npm run test-ci
+      - run: npm ci && npm run test
         name: record-store-server-node-js
         working-directory: ./apps/record-store-server-node-js
       - run: npm ci && npm run test
