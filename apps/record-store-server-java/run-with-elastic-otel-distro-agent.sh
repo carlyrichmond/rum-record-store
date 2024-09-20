@@ -14,4 +14,4 @@ direnv allow
 
 # Start application using downloaded Elastic Java OTel Distro agent jar
 
-mvn spring-boot:run -Dspring-boot.run.jvmArguments="-javaagent:src/main/resources/otel/elastic-otel-javaagent-0.3.2.jar"
+mvn spring-boot:run -Dspring-boot.run.jvmArguments="-javaagent:src/main/resources/otel/elastic-otel-javaagent-1.0.0.jar"
