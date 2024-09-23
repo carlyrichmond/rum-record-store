@@ -22,7 +22,7 @@
     "@opentelemetry/auto-instrumentations-node": "^0.46.1",
     "cores": "^0.8.5",
     "cors": "^2.8.5",
-    "elastic-apm-node": "^4.5.4",
+    "elastic-apm-node": "^4.7.3",
     "express": "^4.19.2",
     "install": "^0.13.0",
     "jest-junit": "^16.0.0",
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
-    "@types/node": "^20.12.12",
+    "@types/node": "^20.16.5",
     "tslib": "^2.6.2"
   }
 }
