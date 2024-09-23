@@ -1,0 +1,16 @@
+.container {
+    padding: 1rem 2rem;
+    margin-bottom: 3rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.search-bar-container {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    width: 80%;
+    height: 6%;
+}

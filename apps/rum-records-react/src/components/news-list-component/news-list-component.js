@@ -1,9 +1,30 @@
+import axios from 'axios';
+import { faWarning } from '@fortawesome/free-solid-svg-icons';
+import { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { environment} from '../../environments/environment';
+
 import './news-list-component.css';
-import { faWarning } from '@fortawesome/free-solid-svg-icons';
 
 export function NewsListComponent(props) {
+  useEffect(() => {
+    async function getNews() {
+      try {
+        let url = `${environment.baseUrl}/error/`;
+        axios.get(url).then(res => {
+          console.log(res);
+      }).catch(errorRes => {
+        console.log(errorRes.message);
+      });
+      }
+      catch(err) {
+        console.log('Unable to get news stories');
+      }
+    }
+    getNews();
+  });
+
   return (
     <div className="container" style={{height: "100vh"}}>
       {

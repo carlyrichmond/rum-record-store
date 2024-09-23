@@ -11,7 +11,7 @@ export function RecordListComponent({ query }) {
   const [ records, setRecords ] = useState();
 
   function enrichRecordsWithImages(records) {
-    const baseImageURL = './records';
+    const baseImageURL = '/records';
 
     return records.map((record) => {
       const filename = `${baseImageURL}/${record.albumId}.avif`;

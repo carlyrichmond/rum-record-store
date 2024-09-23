@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+}
+
+header {
+    background-color: #000;
+    font-family: 'Righteous';
+    font-size: 2em;
+
+    /* Positioning */
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+    
+    a {
+        color: #ffff;
+        text-decoration: none;
+    }
+}
+
+hr {
+    margin: 0;
+}
+
+nav {
+
+    ul {
+        list-style-type: none;
+        margin: 0.25rem;
+    
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    
+        li {
+            margin: 0 0.5rem 0 0.5rem;
+
+            a {
+                font-family: 'Baloo 2';
+                text-decoration: none;
+                font-size: 1.1rem;
+                color: #551a8b;
+            }
+        }
+    }
+}
+
+section {
+    background-color: #000;
+    
+    height: "100vh";
+    overflow-y: scroll;
+}
+
+footer {
+    background-color: #000;
+    color: #ffff;
+    padding: 1rem;
+    font-family: 'Baloo 2';
+    
+    /* Positioning */
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+}
+
+[data-icon='record-vinyl'] {
+    color: #F68FBE;
+    margin-left: 1rem;
+}
+
+[data-icon='mug-saucer'] {
+    color: #F68FBE;
+    margin-left: 0.5rem;
+}

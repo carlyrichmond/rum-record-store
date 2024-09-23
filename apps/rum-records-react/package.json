@@ -27,6 +27,7 @@
     "test": "jest",
     "cy:run:chrome": "cypress run --browser chrome",
     "cy:run:firefox": "cypress run --browser firefox",
+    "cy:run:electron": "cypress run --browser electron",
     "cy:run:edge": "cypress run --browser edge",
     "eject": "react-scripts eject"
   },

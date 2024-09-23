@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&family=Righteous&display=swap');
+
+:root {
+    --blue: #1e90ff;
+    --white: #ffffff;
+    --header-font: 'Righteous';
+    --secondary-font: 'Baloo 2';
+    --main-background-color: #000;
+    --main-text-color: #ffff;
+    --secondary-text-color: #c5c5c5;
+    --highlight-icon-color : #F68FBE;
+}
+
+body {
+    margin: 0;
+}
+
+label {
+    font-family: var(--secondary-font);
+    color: var(--secondary-text-color);
+}

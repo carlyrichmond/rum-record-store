@@ -1,0 +1,18 @@
+@import url('../../styles');
+
+.container {
+    background-color: var(--main-background-color);
+    height: "100vh" !important;
+
+    padding: 1rem 2rem;
+    margin-bottom: 3rem;
+    display: flex;
+    overflow-y: hidden;
+}
+
+.no-news-label {
+    text-align: center;
+    margin: 6rem auto 0 auto;
+
+    font-size: 1.2rem;
+}

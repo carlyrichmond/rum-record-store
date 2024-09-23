@@ -1,0 +1,10 @@
+.splash {
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar-container {
+    margin-top: 10rem;
+    width: 75%;
+    height: 6%;
+}
