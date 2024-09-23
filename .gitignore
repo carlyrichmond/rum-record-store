@@ -37,7 +37,6 @@ testem.log
 /typings
 
 # Generated CSS files
-*.css
 *.min.css
 *.css.map
 
