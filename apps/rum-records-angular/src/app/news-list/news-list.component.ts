@@ -10,6 +10,7 @@ export class NewsListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+      throw new Error ('Unable to get news stories');
   }
 
   onSubscribeClick() {
