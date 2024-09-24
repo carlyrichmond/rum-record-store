@@ -25,11 +25,15 @@ export function NewsListComponent(props) {
     getNews();
   });
 
+  function onSubscribeClick() {
+    alert('Thank you for subscribing!');
+  }
+
   return (
     <div className="container" style={{height: "100vh"}}>
-      {
-        <label data-testid='news-label' className="no-news-label"><FontAwesomeIcon icon={faWarning} />Unable to obtain news stories.</label> 
-      }
+        <label data-testid="news-label" className="no-news-label"><FontAwesomeIcon icon={faWarning} />Unable to obtain news stories.</label> 
+        <button class="subscribe-btn" data-testid="subscribe-btn" 
+          onClick={onSubscribeClick}>Subscribe</button> 
     </div>
   );
 }
