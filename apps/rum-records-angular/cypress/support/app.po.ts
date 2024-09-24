@@ -8,4 +8,6 @@ export const getRecordCards = () => cy.get('[data-testid="record-card"]');
 
 export const getNewsLabel = () => cy.get('[data-testid="news-label"]');
 
+export const getNewsSubscribeButton = () => cy.get('[data-testid="subscribe-btn"]');
+
 export const getEventsLabel = () => cy.get('[data-testid="events-label"]');

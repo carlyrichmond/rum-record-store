@@ -11,4 +11,8 @@ export class NewsListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  onSubscribeClick() {
+    alert('Thank you for subscribing!');
+  }
 }
