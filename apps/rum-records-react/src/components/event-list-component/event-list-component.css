@@ -1,12 +1,12 @@
 @import url('../../styles');
 
-.container {
+.events-container {
     background-color: var(--main-background-color);
 
     padding: 1rem 2rem;
     margin-bottom: 3rem;
     display: flex;
-    flex-direction: row;
+    overflow-y: hidden;
 }
 
 .no-events-label {
