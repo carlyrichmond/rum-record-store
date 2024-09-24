@@ -31,7 +31,7 @@ export class AppComponent {
       serviceVersion: '1',
       environment: 'dev',
       // How to enable debug mode if needed
-      //logLevel: 'debug'
+      logLevel: 'debug'
     });
   }
 }
