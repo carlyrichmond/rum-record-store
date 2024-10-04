@@ -3,15 +3,19 @@ package com.rum.records.store.server.rumrecordsstore.record;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
 import reactor.core.publisher.Flux;
 
 @Repository
 public class RecordRepository {
-    
+
     private static final List<MusicRecord> RECORD_DATA;
     private static final List<MusicRecordFormat> FORMATS;
+
+    private static Logger logger = LogManager.getLogger(RecordRepository.class);
 
     static {
         FORMATS = new ArrayList<MusicRecordFormat>();
@@ -43,13 +47,15 @@ public class RecordRepository {
     }
 
     public Flux<MusicRecord> findRecordsByQuery(String query) {
+        logger.info(String.format("Filtering records matching terms: %s", query));
         return Flux.fromStream(
             RECORD_DATA.stream().
-            filter(x -> x.getArtist().toLowerCase().contains(query) 
+            filter(x -> x.getArtist().toLowerCase().contains(query)
             || x.getTitle().toLowerCase().contains(query)));
     }
 
     public Flux<MusicRecord> findAllRecords() {
+        logger.info("Finding all records in catalog");
         return Flux.fromIterable(RECORD_DATA);
     }
 

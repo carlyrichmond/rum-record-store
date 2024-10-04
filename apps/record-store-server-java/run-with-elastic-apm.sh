@@ -12,6 +12,6 @@
 
 direnv allow
 
-# Start application using downloaded Elastic Java OTel Distro agent jar
+# Start application using downloaded Elastic Java APM agent jar and no Docker
 
 mvn spring-boot:run -Dspring-boot.run.jvmArguments="-javaagent:src/main/resources/elastic-apm/elastic-apm-agent-1.49.0.jar"

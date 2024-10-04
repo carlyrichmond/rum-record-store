@@ -1,5 +1,3 @@
-
-
 # Rum Record Store: Are They Really Using It?
 
 A repo containing several UI and server components showcasing Elastic User Experience Monitoring via JavaScript RUM and Java APM agents. Used to input sample user interaction data into an Elastic Observability dashboard. 
@@ -28,7 +26,7 @@ The server and React frontend components make use of Elastic APM and RUM agents 
 
 This project comprises of several applications, visible within the *apps* folder:
 
-1. *record-store-server-java*: Java Spring Boot Webflux Application with Elastic Java APM and [Open Telemetry Java agent](https://opentelemetry.io/docs/instrumentation/java/). The Spring Boot application checks for the *otel.javaagent.configuration-file* from the command line process and will attach the Elastic APM agent only if that value is null. Otherwise, the OTEL agent will run as per the vmArgs configuration. The sample commands for both approaches are in *.vscode/launch.json*.
+1. *record-store-server-java*: Java Spring Boot Webflux Application with Elastic Java APM and [Elastic Distribution for Open Telemetry Java agent (or EDOT Java)](https://github.com/elastic/elastic-otel-java). The Spring Boot application checks for the *otel.javaagent.configuration-file* from the command line process and will attach the Elastic APM agent only if that value is null. Otherwise, the OTEL agent will run as per the vmArgs configuration. The sample commands for both approaches are in *.vscode/launch.json*.
 2. *rum-records-react*: JavaScript React UI, connected to *record-store-server-node*.
 3. *rum-records-angular*: Angular TypeScript UI, connected to *record-store-server-java*.
 4. *record-store-server-node*: Express server, with JavaScript and Typescript examples denoted by the js and ts postfixes respectively. The JS example uses the OTel Node.js agent, meanwhile the TS example uses the Elastic Node.js APM agent.
@@ -63,10 +61,11 @@ npm run start
 
 cd apps/record-store-server-java
 
-// Option 1: OTel 
-// Ensure you have the required env variables as commented in the script
+// Option 1: EDOT Java
+// Ensure you have the required env variables as presented in .env-example
+// Docker installation required
 cd apps/record-store-server-java
-./run-with-otel.sh
+./run-with-elastic-otel-distro-agent.sh
 
 // Option 2: Elastic APM Agent 
 // Ensure you have the required env variables as commented in the script
@@ -99,9 +98,12 @@ Note that each browser must be installed on your local machine for the task to s
 
 1. [Elastic User Experience Overview](https://www.elastic.co/guide/en/observability/current/user-experience.html)
 3. [Elastic RUM Agent](https://www.elastic.co/guide/en/apm/agent/rum-js/current/index.html)
-4. [Elastic Observability Guide](https://www.elastic.co/guide/en/observability/current/index.html) 
-5. [Open Telemetry](https://opentelemetry.io/)
-6. [Google Core Web Vitals](https://web.dev/explore/learn-core-web-vitals)
+3. [Open Telemetry](https://opentelemetry.io/)
+4. [Google Core Web Vitals](https://web.dev/explore/learn-core-web-vitals)
+5. [GitHub: elastic-otel-java](https://github.com/elastic/elastic-otel-java)
+6. [Revealing unknowns in your tracing data with inferred spans in OpenTelemetry | Elastic Observability Labs](https://www.elastic.co/observability-labs/blog/tracing-data-inferred-spans-opentelemetry)
+7. [Announcing GA of Elastic distribution of the OpenTelemetry Java Agent | Elastic Observability Labs](https://www.elastic.co/observability-labs/blog/elastic-distribution-opentelemetry-java-agent)
+8. [Elastic Observability Guide](https://www.elastic.co/guide/en/observability/current/index.html) 
 
 ## Credits
 
