@@ -23,13 +23,17 @@ public class RecordController {
   }
 
   @GetMapping
-  private Flux<MusicRecord> getAllRecords() {
+  private Flux<MusicRecord> getAllRecords() throws InterruptedException {
+    logger.info("Waiting...");
+    Thread.sleep(10000);
     logger.info("Getting all records");
     return recordRepository.findAllRecords();
   }
 
   @GetMapping("/{query}")
-  private Flux<MusicRecord> getRecordByQuery(@PathVariable String query) {
+  private Flux<MusicRecord> getRecordByQuery(@PathVariable String query) throws InterruptedException {
+    logger.info("Waiting...");
+    Thread.sleep(10000);
     logger.info(String.format("Getting records that match query: %s", query));
     return recordRepository.findRecordsByQuery(query);
   }
