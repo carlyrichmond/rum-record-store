@@ -48,6 +48,8 @@ public class RecordRepository {
 
     public Flux<MusicRecord> findRecordsByQuery(String query) {
         logger.info(String.format("Filtering records matching terms: %s", query));
+
+
         return Flux.fromStream(
             RECORD_DATA.stream().
             filter(x -> x.getArtist().toLowerCase().contains(query)
@@ -58,5 +60,4 @@ public class RecordRepository {
         logger.info("Finding all records in catalog");
         return Flux.fromIterable(RECORD_DATA);
     }
-
 }
