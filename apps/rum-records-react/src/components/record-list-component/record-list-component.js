@@ -39,7 +39,7 @@ export function RecordListComponent({ query }) {
       }
     }
     getRecords();
-  });
+  }, [query]);
 
   return (
     <div className="cards-container">

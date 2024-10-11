@@ -7,6 +7,8 @@
  import * as path from 'path';
  import cors from 'cors';
 
+ import opentelemetry from '@opentelemetry/api';
+
 import { allRecords, filterRecords } from './util/records.js';
  
  const app = express();
@@ -18,9 +20,18 @@ import { allRecords, filterRecords } from './util/records.js';
    origin: 'http://localhost:3000',
  };
  app.use(cors(options));
+
+ const tracer = opentelemetry.trace.getTracer(
+  process.env.OTEL_SERVICE_NAME,
+  '1',
+);
  
  app.get('/records', (req, res) => {
-   res.send(allRecords);
+  tracer.startActiveSpan('GET allRecords/custom', (span) => {
+    console.log('Getting all records');
+    res.send(allRecords);
+    span.end();
+  })
  });
  
  app.get('/records/:terms', (req, res) => {
